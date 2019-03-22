@@ -16,7 +16,7 @@ const url = require('url');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
-
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 function createWindow() {
     // Create the browser window.
     win = new BrowserWindow({
@@ -25,7 +25,11 @@ function createWindow() {
         frame: true,
         minHeight: 600,
         minWidth: 1000,
-        title: "Digital Dungeon Master"
+        title: "Digital Dungeon Master",
+        webPreferences: {
+            nodeIntegration: false,
+            preload: './preload.js'
+          }
     });
 
     win.setTitle(require('./package.json').name);
