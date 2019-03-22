@@ -10,11 +10,8 @@ COMPATIBILITY:
 # UnCSS will use these settings
 UNCSS_OPTIONS:
   html:
-    # Search for used CSS classes in generated HTML files
-    - "dist/**/*.html"
-  ignore:
-    - !!js/regexp .foundation-mq
-    - !!js/regexp ^\.is-.*
+    - "src/**/*.html"
+  
 
 # Gulp will reference these paths when it copies files
 PATHS:
@@ -23,12 +20,21 @@ PATHS:
   # Paths to static assets that aren't images, CSS, or JavaScript
   assets:
     - "src/assets/**/*"
-    - "!src/assets/{img,js,scss}/**/*"
+    - "!src/assets/{img,scss}{,/**/*}"
+    # - "!src/assets/{img,js,scss}{,/**/*}"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
-    - "node_modules/foundation-sites/scss"
-    - "node_modules/motion-ui/src"
+    - "node_modules/bootstrap/scss"
+    
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
+   # - "node_modules/babel-polyfill/dist/polyfill.js"
+    
     - "src/assets/js/app.js"
+MOVE:
+  js:
+    - "node_modules/jquery/dist/jquery.min.js"
+    - "node_modules/popper.js/dist/popper.min.js"
+    - "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    - "node_modules/jquery-ui-dist/jquery-ui.min.js"
     
