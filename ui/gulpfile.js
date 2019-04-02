@@ -13,6 +13,9 @@ var plugins = require("gulp-load-plugins");
 var fs = require("fs");
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
  
 sass.compiler = require('node-sass');
 
@@ -167,9 +170,11 @@ function resetPages(done) {
 
 //gulp 4.0
 function js() {
-    return gulp.src('src/assets/js/**/*.js')
+    return gulp.src(['src/assets/js/libs/jquery.js', 'src/assets/js/libs/jquery-ui.min.js', 'src/assets/js/libs/bootstrap.js', '!src/assets/js/libs/','src/assets/js/*.js'])
         // .pipe(sourcemaps.init())
         // .pipe(sourcemaps.write())
+        .pipe(concat('app.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/assets/js'));
 };
 //gulp 3.9
