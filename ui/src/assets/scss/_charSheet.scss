@@ -12,6 +12,14 @@
     .icon {
         width:1em;
         height:1em;
+        fill:$gray-600;
+        stroke-width:15px;
+
+        .radio-on {
+            .dot {
+                fill: $red;
+            }
+        }
     }
     .information {
         display:block;
@@ -70,6 +78,16 @@
             font-size:0.65em;
             line-height:1em;
             display:block;
+        }
+    }
+    .savingThrows {
+        input {
+            width: 2em;
+            font-size:0.6em;
+            text-align: center;
+        }
+        label {
+            display:inline-block;
         }
     }
     .statistics {
