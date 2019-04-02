@@ -3,18 +3,8 @@
 @import 'customVariables';
 @import 'charSheet';
 @import 'styler';
-
+@import 'mainBody';
 
 body {
     background-size: canvas;
-}
-
-@media (min-width: 992px) {
-
-}
-
-
-.hammer{
-    background-color:red;
-    cursor:pointer;
 }
