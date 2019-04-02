@@ -5,6 +5,10 @@
             <label for="charName">Character Name</label>
         </div>
         <div class="info">
+            <input id="race" type="text" />
+            <label for="race">Race</label>
+        </div>
+        <div class="info">
             <input id="xp" type="text" style="width:8em;" />
             <label for="xp">Experience Points</label>
         </div>
@@ -15,10 +19,6 @@
         <div class="info">
             <input id="class" type="text" />
             <label for="class">Class</label>
-        </div>
-        <div class="info">
-            <input id="race" type="text" />
-            <label for="race">Race</label>
         </div>
         <div class="info">
             <input id="background" type="text" />
@@ -35,7 +35,7 @@
         </div>
     </section>
 
-    <section class="abilities">
+    <section class="charCol abilities">
         <div class="ability-box">
             <label for="str" title="Strength is your natural athleticism, bodily power">STR</label>
             <input id="str" class="ability" type="text" value="10" maxlength="2" />
@@ -68,19 +68,24 @@
         </div>
     </section>
 
-    <section class="savesAndSkills">
+    <section class="charCol savesAndSkills">
+        <section class="inspiration">
+            <input id="insp" type="text" />
+            <label for="insp">Inspiration</label>
+        </section>
         <section class="profBonus">
             <input id="profBonus" type="text" />
             <label for="profBonus">Proficiency Bonus</label>
         </section>
         <section class="savingThrows">
             <div class="save">
+                <img class="icon" src="/assets/img/svg/ios-star.svg" />
                 <input id="armorClass" type="text" />
                 <label for="armorClass">Armor Class</label>
             </div>
             <div class="save">
                 <input id="initiative" type="text" />
-                <label for="initiative">Initiative</label>
+                <label for="initiative">Strength</label>
             </div>
             <div class="save">
                 <input id="speed" type="text" />
@@ -106,7 +111,7 @@
 
     </section>
 
-    <section class="statistics">
+    <section class="charCol statistics">
         <div class="stat">
             <input id="armorClass" type="text" />
             <label for="armorClass">Armor Class</label>
@@ -141,7 +146,33 @@
         </div>
     </section>
 
-    <section class="about">
+<div class="charCol">
+    <section class="attacks">
+        <div class="atk">
+            <input id="atkName" type="text" />
+        </div>
+        <div class="atk">
+            <input id="atkBonus" type="text" />
+        </div>
+        <div class="atk">
+            <input id="atkDamage" type="text" />
+        </div>
+        <div class="atk">
+            <input id="atkType" type="text" />
+        </div>
+    </section>
+
+    <section class="equipment">
+        <div class="equip">
+            <input id="eqName" type="text" />
+        </div>
+        <div class="equip">
+            <input id="eqQty" type="text" />
+        </div>
+    </section>
+</div>
+
+    <section class="charCol about">
         <div class="stat">
             <input id="armorClass" type="text" />
             <label for="armorClass">Armor Class</label>

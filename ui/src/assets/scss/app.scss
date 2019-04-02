@@ -2,9 +2,9 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 @import 'customVariables';
 @import 'charSheet';
-@import 'styler';
-@import 'mainBody';
 
+@import 'mainBody';
+@import 'styler';
 body {
     background-size: canvas;
 }

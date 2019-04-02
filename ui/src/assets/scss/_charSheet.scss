@@ -5,6 +5,14 @@
     background-color:white;
     padding:1em;
 
+    .charCol {
+        display:inline-block;
+        position:relative;
+    }
+    .icon {
+        width:1em;
+        height:1em;
+    }
     .information {
         display:block;
     }
@@ -24,8 +32,6 @@
         }
     }
     .abilities {
-        display:inline-block;
-        position:relative;
         width:100px;
     }
     .ability-box {
@@ -57,5 +63,22 @@
             font-weight: bold;
         }
     }
-
+    .savesAndSkills {
+        width:200px;
+        label {
+            margin: 0.2em auto 0;
+            font-size:0.65em;
+            line-height:1em;
+            display:block;
+        }
+    }
+    .statistics {
+        width:200px;
+        label {
+            margin: 0.2em auto 0;
+            font-size:0.65em;
+            line-height:1em;
+            display:block;
+        }
+    }
 }
