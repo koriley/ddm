@@ -1,0 +1,61 @@
+.charSheet{
+    display:block;
+    position:relative;
+    width:600px;
+    background-color:white;
+    padding:1em;
+
+    .information {
+        display:block;
+    }
+    .info {
+        margin: 0.5rem 0.5rem 0 0;
+        display:inline-block;
+        input {
+            border-width: 0 0 1px 0;
+            border-color: $gray-400;
+            font-size:0.75em;
+        }
+        label {
+            margin: 0.2em auto 0;
+            font-size:0.65em;
+            line-height:1em;
+            display:block;
+        }
+    }
+    .abilities {
+        display:inline-block;
+        position:relative;
+        width:100px;
+    }
+    .ability-box {
+        text-align: center;
+        position: relative;
+        margin: 0 auto 0.25rem;
+        label {
+            margin: 0 auto;
+            font-size:0.65em;
+            line-height:1em;
+            display:block;
+        }
+        input {
+            width: 2.7em;
+            height: 2.7em;
+            margin: 0 auto;
+            text-align: center;
+            padding:0 0.2em 1em;
+            font-size:0.7em;
+        }
+        .modifier-bubble {
+            display:block;
+            margin: 0 auto;
+            width: 2.5em;
+            text-align: center;
+            transform: translateX(50%);
+            transform: translateY(-50%);
+            font-size:0.75em;
+            font-weight: bold;
+        }
+    }
+
+}

@@ -1,0 +1,21 @@
+.styler-container {
+    display: block;
+    width:30%;
+    background-color: rgba(255,255,255,0.1);
+    padding:0.5em;
+}
+.theme-default {
+    background-image: url('/assets/img/leather-pattern.jpg');
+}
+.theme-light {
+    background-image: url('/assets/img/leather-pattern-light.jpg');
+}
+.theme-black {
+    background-image: url('/assets/img/leather-pattern-black.jpg');
+}
+.theme-gray {
+    background-image: url('/assets/img/leather-pattern-gray.jpg');
+}
+.theme-red {
+    background-image: url('/assets/img/leather-pattern-red.jpg');
+}
