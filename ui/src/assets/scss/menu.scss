@@ -1,0 +1,17 @@
+.menu{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index:100;
+    left:0;
+    top:0;
+    bottom:0;
+    width:200px;
+    border-right:1px solid gray;
+    text-align:center;
+    .btn{
+       margin:15px;
+       padding:15px;
+       width:100px;
+       text-align:center;
+    }
+}
