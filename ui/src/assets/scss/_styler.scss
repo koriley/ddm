@@ -1,21 +1,30 @@
 .styler-container {
+    position:absolute;
+    top:0;
     display: none;
-    width:30%;
-    background-color: rgba(255,255,255,0.1);
+    width:100%;
+    background-color: rgba(0,0,0,0.25);
     padding:0.5em;
+    z-index:5;
+
+    .close {
+        text-shadow:none;
+        color:$white;
+    }
+
 }
 .theme-default {
-    background-image: url('/assets/img/leather-pattern.jpg');
+    background-image: url('../../assets/img/leather-pattern.jpg');
 }
 .theme-light {
-    background-image: url('/assets/img/leather-pattern-light.jpg');
+    background-image: url('../../assets/img/leather-pattern-light.jpg');
 }
 .theme-black {
-    background-image: url('/assets/img/leather-pattern-black.jpg');
+    background-image: url('../../assets/img/leather-pattern-black.jpg');
 }
 .theme-gray {
-    background-image: url('/assets/img/leather-pattern-gray.jpg');
+    background-image: url('../../assets/img/leather-pattern-gray.jpg');
 }
 .theme-red {
-    background-image: url('/assets/img/leather-pattern-red.jpg');
+    background-image: url('../../assets/img/leather-pattern-red.jpg');
 }

@@ -5,6 +5,10 @@
             <label for="charName">Character Name</label>
         </div>
         <div class="info">
+            <input id="race" type="text" />
+            <label for="race">Race</label>
+        </div>
+        <div class="info">
             <input id="xp" type="text" style="width:8em;" />
             <label for="xp">Experience Points</label>
         </div>
@@ -15,10 +19,6 @@
         <div class="info">
             <input id="class" type="text" />
             <label for="class">Class</label>
-        </div>
-        <div class="info">
-            <input id="race" type="text" />
-            <label for="race">Race</label>
         </div>
         <div class="info">
             <input id="background" type="text" />
@@ -35,78 +35,155 @@
         </div>
     </section>
 
-    <section class="abilities">
+    <section class="charCol abilities">
         <div class="ability-box">
             <label for="str" title="Strength is your natural athleticism, bodily power">STR</label>
-            <input id="str" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="str" class="ability" type="text" value="18" maxlength="2" />
+            <div id="str-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="dex" title="Dexterity measures physical agility, reflexes, balance, poise">DEX</label>
-            <input id="dex" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="dex" class="ability" type="text" value="15" maxlength="2" />
+            <div id="dex-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="con" title="Constitution is your health, stamina, vital force">CON</label>
-            <input id="con" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="con" class="ability" type="text" value="13" maxlength="2" />
+            <div id="con-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="int" title="Intelligence is mental acuity, information recall, analytical skill">INT</label>
-            <input id="int" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="int" class="ability" type="text" value="11" maxlength="2" />
+            <div id="int-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="wis" title="Wisdom measures awareness, intuition, insight">WIS</label>
-            <input id="wis" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="wis" class="ability" type="text" value="8" maxlength="2" />
+            <div id="wis-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="cha" title="Charisma is confidence, eloquence, leadership">CHA</label>
-            <input id="cha" class="ability" type="text" value="10" maxlength="2" />
-            <div class="badge badge-secondary badge-pill modifier-bubble">0</div>
+            <input id="cha" class="ability" type="text" value="6" maxlength="2" />
+            <div id="cha-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
     </section>
 
-    <section class="savesAndSkills">
+    <section class="charCol savesAndSkills">
+        <section class="inspiration">
+            <input id="insp" type="text" />
+            <label for="insp">Inspiration</label>
+        </section>
         <section class="profBonus">
-            <input id="profBonus" type="text" />
+            <input id="profBonus" type="text" value="2" />
             <label for="profBonus">Proficiency Bonus</label>
         </section>
         <section class="savingThrows">
+            Saving Throws
             <div class="save">
-                <input id="armorClass" type="text" />
-                <label for="armorClass">Armor Class</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="str"></div>
+                <label>Strength</label>
             </div>
             <div class="save">
-                <input id="initiative" type="text" />
-                <label for="initiative">Initiative</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="dex"></div>
+                <label>Dexterity</label>
             </div>
             <div class="save">
-                <input id="speed" type="text" />
-                <label for="speed">Speed</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="con"></div>
+                <label>Constitution</label>
             </div>
             <div class="save">
-                <input id="hpMax" type="text" />
-                <label for="hpMax">Hit Point Maximum</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="int"></div>
+                <label>Intelligence</label>
             </div>
             <div class="save">
-                <input id="hpCurrent" type="text" />
-                <label for="hpCurrent">Current Hit Points</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="wis"></div>
+                <label>Wisdom</label>
             </div>
             <div class="save">
-                <input id="hpTemp" type="text" />
-                <label for="hpTemp">Temporary Hit Points</label>
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="cha"></div>
+                <label>Charisma</label>
             </div>
-            <div class="save">
-                <input id="hitDice" type="text" />
-                <label for="hitDice">Hit Dice</label>
+        </section>
+
+        <section class="skills">
+            Skills
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="str"></div>
+                <label>Strength</label>
+            </div>
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="dex"></div>
+                <label>Dexterity</label>
+            </div>
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="con"></div>
+                <label>Constitution</label>
+            </div>
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="int"></div>
+                <label>Intelligence</label>
+            </div>
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="wis"></div>
+                <label>Wisdom</label>
+            </div>
+            <div class="skill">
+                <svg class="icon-prof off" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <div class="profVal" id="cha"></div>
+                <label>Charisma</label>
             </div>
         </section>
 
     </section>
 
-    <section class="statistics">
+    <section class="charCol statistics">
         <div class="stat">
             <input id="armorClass" type="text" />
             <label for="armorClass">Armor Class</label>
@@ -141,7 +218,33 @@
         </div>
     </section>
 
-    <section class="about">
+    <div class="charCol">
+        <section class="attacks">
+            <div class="atk">
+                <input id="atkName" type="text" />
+            </div>
+            <div class="atk">
+                <input id="atkBonus" type="text" />
+            </div>
+            <div class="atk">
+                <input id="atkDamage" type="text" />
+            </div>
+            <div class="atk">
+                <input id="atkType" type="text" />
+            </div>
+        </section>
+
+        <section class="equipment">
+            <div class="equip">
+                <input id="eqName" type="text" />
+            </div>
+            <div class="equip">
+                <input id="eqQty" type="text" />
+            </div>
+        </section>
+    </div>
+
+    <section class="charCol about">
         <div class="stat">
             <input id="armorClass" type="text" />
             <label for="armorClass">Armor Class</label>

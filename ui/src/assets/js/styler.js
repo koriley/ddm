@@ -8,3 +8,7 @@ jQuery(buttonOptions).each(function() {
         jQuery('body').addClass('theme-' + myStyle);
     })
 })
+
+jQuery(".close").click(function(){
+    jQuery(".styler-container").toggle();
+})
