@@ -3,4 +3,4 @@ jQuery("document").ready(function() {
         containment: ".mainView",
         scroll: false
     });
-})
+});

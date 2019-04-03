@@ -1,102 +1,181 @@
-.charSheet{
-    display:none;
-    position:relative;
-    width:600px;
-    background-color:white;
-    padding:1em;
+.charSheet {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    width: 600px;
+    background-color: white;
+    padding: 1em;
 
     .charCol {
-        display:inline-block;
-        position:relative;
+        display: inline-block;
+        position: relative;
+        vertical-align:top;
     }
-    .icon {
-        width:1em;
-        height:1em;
-        fill:$gray-600;
-        stroke-width:15px;
 
-        .radio-on {
+    .icon-prof {
+        width: 15px;
+        height: 15px;
+
+        .circle {
+            stroke: $gray-500;
+            stroke-width: 1px;
+            fill: none;
+        }
+
+        .dot {
+            fill: none;
+        }
+
+        &.on {
             .dot {
-                fill: $red;
+                fill: $gray-600;
+            }
+        }
+
+        &.doubled {
+            .dot {
+                fill: $gray-600;
+            }
+
+            .circle {
+                stroke: $gray-600;
+                stroke-width: 2px;
+            }
+        }
+
+        &.off {
+            .dot {
+                fill: none;
             }
         }
     }
+
     .information {
-        display:block;
+        display: block;
+        margin:0 0 1em;
     }
+
     .info {
         margin: 0.5rem 0.5rem 0 0;
-        display:inline-block;
+        display: inline-block;
+
         input {
             border-width: 0 0 1px 0;
             border-color: $gray-400;
-            font-size:0.75em;
+            font-size: 0.75em;
         }
+
         label {
             margin: 0.2em auto 0;
-            font-size:0.65em;
-            line-height:1em;
-            display:block;
+            font-size: 0.65em;
+            line-height: 1em;
+            display: block;
         }
     }
+
     .abilities {
-        width:100px;
+        width: 50px;
     }
+
     .ability-box {
         text-align: center;
         position: relative;
         margin: 0 auto 0.25rem;
+
         label {
             margin: 0 auto;
-            font-size:0.65em;
-            line-height:1em;
-            display:block;
+            font-size: 0.65em;
+            line-height: 1em;
+            display: block;
         }
+
         input {
             width: 2.7em;
             height: 2.7em;
             margin: 0 auto;
             text-align: center;
-            padding:0 0.2em 1em;
-            font-size:0.7em;
+            padding: 0 0.2em 1em;
+            font-size: 0.7em;
         }
+
         .modifier-bubble {
-            display:block;
+            display: block;
             margin: 0 auto;
             width: 2.5em;
             text-align: center;
             transform: translateX(50%);
             transform: translateY(-50%);
-            font-size:0.75em;
+            font-size: 0.75em;
             font-weight: bold;
         }
     }
-    .savesAndSkills {
-        width:200px;
-        label {
-            margin: 0.2em auto 0;
-            font-size:0.65em;
-            line-height:1em;
-            display:block;
-        }
-    }
-    .savingThrows {
+
+    .inspiration {
+        margin:0 0 .5em;
         input {
-            width: 2em;
-            font-size:0.6em;
+            width:1.5em;
+            height:1.5em;
             text-align: center;
+            line-height: 1em;
         }
         label {
-            display:inline-block;
+            margin: 0 auto;
+            font-size: 0.75em;
+            line-height: 1em;
+            display: inline-block;
         }
     }
+    .profBonus{
+        margin:0 0 .5em;
+        input {
+            width:1.5em;
+            height:1.5em;
+            text-align: center;
+            line-height: 1em;
+        }
+        label {
+            margin: 0 auto;
+            font-size: 0.75em;
+            line-height: 1em;
+            display: inline-block;
+        }
+    }
+
+    .savesAndSkills {
+        width: 150px;
+        margin: 0 1em;
+        .savingThrows, .skills {
+            margin: 0 0 1em 0;
+        }
+        .save, .skill {
+            position: relative;
+
+            .profVal {
+                display: inline-block;
+                width: 1.5em;
+                font-size: 0.6em;
+                text-align: center;
+                border-bottom: 1px solid $gray-500;
+            }
+
+            label {
+                display: inline-block;
+                margin: 0.2em auto 0;
+                font-size: 0.65em;
+                line-height: 1em;
+            }
+        }
+
+    }
+
     .statistics {
-        width:200px;
+        width: 200px;
+
         label {
             margin: 0.2em auto 0;
-            font-size:0.65em;
-            line-height:1em;
-            display:block;
+            font-size: 0.65em;
+            line-height: 1em;
+            display: block;
         }
     }
 }
