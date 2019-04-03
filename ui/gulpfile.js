@@ -11,30 +11,37 @@ var named = require("vinyl-named");
 var yaml = require("js-yaml");
 var plugins = require("gulp-load-plugins");
 var fs = require("fs");
-var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
- 
+var babel = require('gulp-babel');
+const sourcemaps = require('gulp-sourcemaps');
+
 sass.compiler = require('node-sass');
 
 var $ = plugins({
     scope: ['dependencies', 'devDependencies', 'peerDependencies']
 });
 
-var { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS, MOVE } = loadConfig();
+var {
+    COMPATIBILITY,
+    PORT,
+    UNCSS_OPTIONS,
+    PATHS,
+    MOVE
+} = loadConfig();
 
 function loadConfig() {
-  let ymlFile = fs.readFileSync('config.yml', 'utf8');
-  return yaml.load(ymlFile);
+    let ymlFile = fs.readFileSync('config.yml', 'utf8');
+    return yaml.load(ymlFile);
 }
 
 
 
 //gulp 4.0
 gulp.task('build',
-    gulp.series(clean, gulp.parallel(pages, js, scss, images)));
+    gulp.series(clean, gulp.parallel(pages, js, addBoot, scss, images)));
 //gulp 3.9
 // gulp.task('build', function () {
 //     run('sass', 'images', 'pages','moveJS', 'js', 'copy', 'server', 'watch');
@@ -42,7 +49,7 @@ gulp.task('build',
 
 //gulp 4.0    
 gulp.task('default',
-    gulp.series('build', server, watch));
+    gulp.series('build', location, server, watch));
 //gulp 3.9
 // gulp.task('default', ['clean']);
 // gulp.task("runner", ['default'], function(){
@@ -69,12 +76,15 @@ function scss() {
 //             stream: true
 //         }));
 // });
-
+function location(){
+    return gulp.src('dist/**/*')
+    .pipe(gulp.dest('../views'))
+}
 //gulp 4.0
 function server(done) {
     browser.init({
         server: {
-            baseDir: 'dist'
+            baseDir: '../views'
         }
     });
     done();
@@ -117,11 +127,11 @@ function images() {
 
 //gulp 4.0
 function watch() {
-    gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
-    gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
-    gulp.watch('src/assets/scss/**/*.scss').on('all', scss);
-    gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(js, browser.reload));
-    gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+    gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages,location, browser.reload));
+    gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages,location, browser.reload));
+    gulp.watch('src/assets/scss/**/*.scss').on('all', gulp.series(scss,location, browser.reload));
+    gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(js, addBoot, location, browser.reload));
+    gulp.watch('src/assets/img/**/*').on('all', gulp.series(images,location, browser.reload));
 
 }
 //gulp 3.9
@@ -139,7 +149,8 @@ gulp.task('refresh', function () {
 });
 // gulp 4.0
 function clean(done) {
-    rimraf('dist', done);
+    rimraf("./dist", done)
+    rimraf('../views/', done);
 }
 //gulp 3.9
 // gulp.task('clean', function () {
@@ -170,13 +181,21 @@ function resetPages(done) {
 
 //gulp 4.0
 function js() {
-    return gulp.src(['src/assets/js/libs/jquery.js', 'src/assets/js/libs/jquery-ui.min.js', 'src/assets/js/libs/bootstrap.js', '!src/assets/js/libs/','src/assets/js/*.js'])
-        // .pipe(sourcemaps.init())
-        // .pipe(sourcemaps.write())
+    return gulp.src([ '!src/assets/js/libs/', 'src/assets/js/*.js'])
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(concat('app.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/assets/js'));
 };
+
+function addBoot(){
+    return gulp.src(['src/assets/js/libs/jquery.js', 'src/assets/js/libs/jquery-ui.min.js', 'src/assets/js/libs/bootstrap.js', 'src/assets/js/libs/popper.js'])
+    .pipe(gulp.dest('dist/assets/js'));
+}
 //gulp 3.9
 
 // var webpackConfig = {

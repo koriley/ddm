@@ -27,8 +27,8 @@ function createWindow() {
         minWidth: 1000,
         title: "Digital Dungeon Master",
         webPreferences: {
-            nodeIntegration: false,
-            preload: './preload.js'
+            nodeIntegration: true,
+            // preload: './preload.js'
           }
     });
 
@@ -36,7 +36,7 @@ function createWindow() {
 
     // and load the index.html of the app.
     win.loadURL(url.format({
-        pathname: path.join(__dirname, './ui/dist/index.html'),
+        pathname: path.join(__dirname, './views/index.html'),
         protocol: 'file:',
         slashes: true
     }));
