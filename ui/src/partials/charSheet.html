@@ -1,11 +1,12 @@
-<div class="charSheet drag bg-light rounded shadow-sm">
+<div class="charSheet drag  rounded-sm border shadow">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <section class="information">
         <div class="info">
             <input id="charName" type="text" />
             <label for="charName">Character Name</label>
         </div>
         <div class="info">
-            <input id="race" type="text" />
+            <input id="race" type="text" style="width:10em;" />
             <label for="race">Race</label>
         </div>
         <div class="info">
@@ -25,12 +26,12 @@
             <label for="background">Background</label>
         </div>
         <div class="info">
-            <input id="alignment" type="text" />
+            <input id="alignment" type="text" style="width:10em;" />
             <label for="alignment">Alignment</label>
         </div>
 
         <div class="info">
-            <input id="playerName" type="text" />
+            <input id="playerName" type="text" style="width:8em;" />
             <label for="playerName">Player Name</label>
         </div>
     </section>
@@ -38,49 +39,53 @@
     <section class="charCol abilities">
         <div class="ability-box">
             <label for="str" title="Strength is your natural athleticism, bodily power">STR</label>
-            <input id="str" class="ability" type="text" value="18" maxlength="2" />
+            <input id="str" class="ability" type="text" value="10" maxlength="2" />
             <div id="str-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="dex" title="Dexterity measures physical agility, reflexes, balance, poise">DEX</label>
-            <input id="dex" class="ability" type="text" value="15" maxlength="2" />
+            <input id="dex" class="ability" type="text" value="10" maxlength="2" />
             <div id="dex-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="con" title="Constitution is your health, stamina, vital force">CON</label>
-            <input id="con" class="ability" type="text" value="13" maxlength="2" />
+            <input id="con" class="ability" type="text" value="10" maxlength="2" />
             <div id="con-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="int" title="Intelligence is mental acuity, information recall, analytical skill">INT</label>
-            <input id="int" class="ability" type="text" value="11" maxlength="2" />
+            <input id="int" class="ability" type="text" value="10" maxlength="2" />
             <div id="int-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="wis" title="Wisdom measures awareness, intuition, insight">WIS</label>
-            <input id="wis" class="ability" type="text" value="8" maxlength="2" />
+            <input id="wis" class="ability" type="text" value="10" maxlength="2" />
             <div id="wis-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
         <div class="ability-box">
             <label for="cha" title="Charisma is confidence, eloquence, leadership">CHA</label>
-            <input id="cha" class="ability" type="text" value="6" maxlength="2" />
+            <input id="cha" class="ability" type="text" value="10" maxlength="2" />
             <div id="cha-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
     </section>
 
     <section class="charCol savesAndSkills">
         <section class="inspiration">
-            <input id="insp" type="text" />
-            <label for="insp">Inspiration</label>
+            <input id="insp" type="text" value="3" />
+            <label for="insp">Inspiration/Player Points</label>
         </section>
         <section class="profBonus">
             <input id="profBonus" type="text" value="2" />
             <label for="profBonus">Proficiency Bonus</label>
         </section>
         <section class="savingThrows">
-            Saving Throws
+
+            <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseSaves" aria-expanded="false" aria-controls="collapseExample">
+                Saving Throws
+            </button>
+            <div class="collapse" id="collapseSaves">
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -88,7 +93,7 @@
                 <label>Strength</label>
             </div>
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -96,7 +101,7 @@
                 <label>Dexterity</label>
             </div>
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -104,7 +109,7 @@
                 <label>Constitution</label>
             </div>
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -112,7 +117,7 @@
                 <label>Intelligence</label>
             </div>
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -120,7 +125,7 @@
                 <label>Wisdom</label>
             </div>
             <div class="save">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
                     <circle class="circle" cx="7" cy="7" r="6" />
                     <circle class="dot" cx="7" cy="7" r="4" />
                 </svg>
@@ -130,54 +135,130 @@
         </section>
 
         <section class="skills">
-            Skills
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="str"></div>
-                <label>Strength</label>
-            </div>
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="dex"></div>
-                <label>Dexterity</label>
-            </div>
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="con"></div>
-                <label>Constitution</label>
-            </div>
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="int"></div>
-                <label>Intelligence</label>
-            </div>
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="wis"></div>
-                <label>Wisdom</label>
-            </div>
-            <div class="skill">
-                <svg class="icon-prof off" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="cha"></div>
-                <label>Charisma</label>
+            <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseSkills" aria-expanded="false" aria-controls="collapseExample">
+                Skills
+            </button>
+            <div class="collapse" id="collapseSkills">
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="dex"></div>
+                    <label>Acrobatics <em>Dex</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="wis"></div>
+                    <label>Animal Handling <em>Wis</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="int"></div>
+                    <label>Arcana <em>Int</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="str"></div>
+                    <label>Athletics <em>Str</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="cha"></div>
+                    <label>Deception <em>Cha</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="int"></div>
+                    <label>History <em>Int</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="wis"></div>
+                    <label>Insight <em>Wis</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="cha"></div>
+                    <label>Intimidation <em>Cha</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="wis"></div>
+                    <label>Medicine <em>Wis</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="cha"></div>
+                    <label>Performance <em>Cha</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="cha"></div>
+                    <label>Persuasion <em>Cha</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="int"></div>
+                    <label>Religion <em>Int</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="dex"></div>
+                    <label>Sleight of Hand <em>Dex</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="dex"></div>
+                    <label>Stealth <em>Dex</em></label>
+                </div>
+                <div class="skill">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="wis"></div>
+                    <label>Survival <em>Wis</em></label>
+                </div>
             </div>
         </section>
 
@@ -198,15 +279,15 @@
         </div>
         <div class="stat">
             <input id="hpMax" type="text" />
-            <label for="hpMax">Hit Point Maximum</label>
+            <label for="hpMax">HP Max</label>
         </div>
         <div class="stat">
             <input id="hpCurrent" type="text" />
-            <label for="hpCurrent">Current Hit Points</label>
+            <label for="hpCurrent">Current HP</label>
         </div>
         <div class="stat">
             <input id="hpTemp" type="text" />
-            <label for="hpTemp">Temporary Hit Points</label>
+            <label for="hpTemp">Temporary HP</label>
         </div>
         <div class="stat">
             <input id="hitDice" type="text" />

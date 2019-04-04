@@ -8,7 +8,7 @@ jQuery('#profBonus').on("keyup", function() {
 
 function somethingClever() {
     jQuery('.icon-prof').each(function() {
-        var classes = ['icon-prof off', 'icon-prof on', 'icon-prof doubled'];
+        var classes = ['icon-prof', 'icon-prof proficient', 'icon-prof expertise'];
         var currentClass = jQuery(this).attr('class');
         var currentPos = jQuery.inArray(currentClass, classes);
         var myProf = jQuery(this).parent().children('.profVal');
@@ -17,7 +17,6 @@ function somethingClever() {
 }
 
 function updateProf(myProf, myProfSkillFlag) {
-    console.log(myProf + ":" + myProfSkillFlag);
     var thisAbility = jQuery(myProf).attr('id');
     var thisAbilityBonusID = '#' + thisAbility + '-Bonus';
     var thisAbilityBonus = jQuery('.abilities ' + thisAbilityBonusID).text();
@@ -34,8 +33,9 @@ function updateProf(myProf, myProfSkillFlag) {
     jQuery(myProf).text(newVal);
 };
 
+
 jQuery('.icon-prof').click(function() {
-    var classes = ['icon-prof off', 'icon-prof on', 'icon-prof doubled'];
+    var classes = ['icon-prof', 'icon-prof proficient', 'icon-prof expertise'];
     var currentClass = jQuery(this).attr('class');
     var currentPos = jQuery.inArray(currentClass, classes);
     var newPos = ((currentPos + 1) % classes.length);
