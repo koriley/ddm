@@ -17,6 +17,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
+var concatCss = require('gulp-concat-css');
 
 sass.compiler = require('node-sass');
 
@@ -47,7 +48,7 @@ gulp.task('build',
 //     run('sass', 'images', 'pages','moveJS', 'js', 'copy', 'server', 'watch');
 // });
 
-//gulp 4.0    
+//gulp 4.0
 gulp.task('default',
     gulp.series('build', location, server, watch));
 //gulp 3.9
