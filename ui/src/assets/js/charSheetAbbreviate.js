@@ -3,7 +3,7 @@ function abrreviateLabels() {
     var mySize = jQuery('.charSheet').css('font-size');
     mySize = parseInt(mySize.split('px')[0]);
     // console.log(mySize);
-    if (mySize<15) {
+    if (mySize<16) {
         jQuery('.stat label').each( function(index, label) {
             jQuery(abbrWords).each( function(index, word) {
                 var long = word.split('|')[0];

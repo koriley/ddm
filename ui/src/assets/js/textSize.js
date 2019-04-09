@@ -1,29 +1,27 @@
-jQuery('.textSize #font-size-reset').click( function() {
-    var target = jQuery(this).parent().parent();
-    jQuery(target).css('fontSize','1em');
-    abrreviateLabels();
-})
-
+abrreviateLabels();
 jQuery('.textSize #font-size-up').click( function() {
     var target = jQuery(this).parent().parent();
-    var currEms = Math.round(jQuery(target).css('fontSize').split("px")[0]/16);
-    var newSize = currEms+0.1;
-    if (newSize > 1.5){
-        newSize = 1.5;
+    var currSize = parseInt(jQuery(target).css('fontSize').split("px")[0]);
+    // currSize = Math.round(currSize);
+    var newSize = currSize+1;
+    if (newSize > 24){
+        newSize = 24;
     }
-    console.log(currEms+':'+newSize);
-    jQuery(target).css('fontSize',newSize+'em');
+    var newEms = (newSize/16);
+    console.log(currSize+':'+newSize+':'+newEms);
+    jQuery(target).css('fontSize',newEms+'em');
     abrreviateLabels();
 })
 
 jQuery('.textSize #font-size-down').click( function() {
     var target = jQuery(this).parent().parent();
-    var currEms = jQuery(target).css('fontSize').split("px")[0]/16;
-    var newSize = currEms-0.1;
-    if (newSize < 0.5){
-        newSize = 0.5;
+    var currSize = parseInt(jQuery(target).css('fontSize').split("px")[0]);
+    var newSize = currSize-1;
+    if (newSize < 9){
+        newSize = 9;
     }
-    console.log(currEms+':'+newSize);
-    jQuery(target).css('fontSize',newSize+'em');
+    var newEms = (newSize/16);
+    console.log(currSize+':'+newSize+':'+newEms);
+    jQuery(target).css('fontSize',newEms+'em');
     abrreviateLabels();
 })

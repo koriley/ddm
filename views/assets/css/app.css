@@ -7021,16 +7021,29 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 .charSheet {
-  display: none;
+  /* display: none; */
   position: absolute;
-  top: 0;
-  width: 600px;
-  background-color: #fff;
-  padding: 1em; }
+  top: 25px;
+  left: 5px;
+  width: 37.5em;
+  /* min-width: 200px;
+    max-width: 600px; */
+  min-height: 100px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  overflow: wrap;
+  font-size: 0.6em; }
+  .charSheet .btn {
+    font-size: 0.125em; }
   .charSheet .charCol {
+    width: 10em;
+    min-width: 125px;
     display: inline-block;
+    float: left;
     position: relative;
     vertical-align: top; }
+    .charSheet .charCol.gutter {
+      margin-right: 1em; }
   .charSheet .icon-prof {
     width: 15px;
     height: 15px; }
@@ -7049,11 +7062,9 @@ a.text-dark:hover, a.text-dark:focus {
       stroke-width: 2px; }
     .charSheet .icon-prof.none .dot {
       fill: none; }
-  .charSheet svg path {
-    all: inherit; }
   .charSheet .information {
     display: block;
-    margin: 0 0 1em; }
+    margin: 0.5em 0 2em; }
   .charSheet .info {
     margin: 0.5rem 0.5rem 0 0;
     display: inline-block; }
@@ -7066,24 +7077,38 @@ a.text-dark:hover, a.text-dark:focus {
       font-size: 0.65em;
       line-height: 1em;
       display: block; }
-  .charSheet .abilities {
-    width: 50px; }
-  .charSheet .ability-box {
-    text-align: center;
-    position: relative;
-    margin: 0 auto 0.25rem; }
-    .charSheet .ability-box label {
+  .charSheet .playerPoints {
+    display: inline-block;
+    margin: 0 0.5em 0 0; }
+    .charSheet .playerPoints input {
+      width: 2em;
+      height: 1.5em;
+      text-align: center;
+      line-height: 1em; }
+    .charSheet .playerPoints label {
       margin: 0 auto;
       font-size: 0.65em;
       line-height: 1em;
+      display: inline-block; }
+  .charSheet .abilities {
+    text-align: center; }
+  .charSheet .ability-box {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    margin: 0 0.75em 0.25em 0; }
+    .charSheet .ability-box label {
+      margin: 0 auto;
+      font-size: 0.5em;
+      line-height: 1em;
       display: block; }
     .charSheet .ability-box input {
-      width: 2.7em;
-      height: 2.7em;
+      width: 2.5em;
+      height: 2.25em;
       margin: 0 auto;
       text-align: center;
-      padding: 0 0.2em 1em;
-      font-size: 0.7em; }
+      padding: 0.25em 0 1em;
+      font-size: 0.75em; }
     .charSheet .ability-box .modifier-bubble {
       display: block;
       margin: 0 auto;
@@ -7093,20 +7118,8 @@ a.text-dark:hover, a.text-dark:focus {
       transform: translateY(-50%);
       font-size: 0.75em;
       font-weight: bold; }
-  .charSheet .inspiration {
-    margin: 0 0 .5em; }
-    .charSheet .inspiration input {
-      width: 1.5em;
-      height: 1.5em;
-      text-align: center;
-      line-height: 1em; }
-    .charSheet .inspiration label {
-      margin: 0 auto;
-      font-size: 0.6em;
-      line-height: 1em;
-      display: inline-block; }
   .charSheet .profBonus {
-    margin: 0 0 .5em; }
+    margin: 0 0 0.5em; }
     .charSheet .profBonus input {
       width: 1.5em;
       height: 1.5em;
@@ -7117,37 +7130,185 @@ a.text-dark:hover, a.text-dark:focus {
       font-size: 0.75em;
       line-height: 1em;
       display: inline-block; }
-  .charSheet .savesAndSkills {
-    width: 150px;
-    margin: 0 1em; }
-    .charSheet .savesAndSkills .savingThrows, .charSheet .savesAndSkills .skills {
-      margin: 0 0 0.5em 0; }
-    .charSheet .savesAndSkills .save, .charSheet .savesAndSkills .skill {
-      position: relative; }
-      .charSheet .savesAndSkills .save .profVal, .charSheet .savesAndSkills .skill .profVal {
-        display: inline-block;
-        width: 1.5em;
-        font-size: 0.6em;
-        text-align: center;
-        border-bottom: 1px solid #adb5bd; }
-      .charSheet .savesAndSkills .save label, .charSheet .savesAndSkills .skill label {
-        display: inline-block;
-        margin: 0.2em auto 0;
-        font-size: 0.65em;
-        line-height: 1em; }
-        .charSheet .savesAndSkills .save label em, .charSheet .savesAndSkills .skill label em {
-          color: #adb5bd; }
+  .charSheet .savesAndSkills .savingThrows,
+  .charSheet .savesAndSkills .skills {
+    margin: 0 0 0.5em;
+    text-align: left; }
+    .charSheet .savesAndSkills .savingThrows button,
+    .charSheet .savesAndSkills .skills button {
+      font-size: 0.65em; }
+  .charSheet .savesAndSkills .save,
+  .charSheet .savesAndSkills .skill {
+    position: relative; }
+    .charSheet .savesAndSkills .save .profVal,
+    .charSheet .savesAndSkills .skill .profVal {
+      display: inline-block;
+      width: 1.5em;
+      font-size: 0.6em;
+      text-align: center;
+      border-bottom: 1px solid #adb5bd; }
+    .charSheet .savesAndSkills .save label,
+    .charSheet .savesAndSkills .skill label {
+      display: inline-block;
+      margin: 0.2em auto 0;
+      font-size: 0.65em;
+      line-height: 1em; }
+      .charSheet .savesAndSkills .save label em,
+      .charSheet .savesAndSkills .skill label em {
+        color: #adb5bd; }
+  .charSheet .savesAndSkills .passPerc {
+    margin: 0 0 0.5em; }
+    .charSheet .savesAndSkills .passPerc input {
+      width: 2em;
+      height: 1.5em;
+      text-align: center;
+      line-height: 1em; }
+    .charSheet .savesAndSkills .passPerc label {
+      margin: 0 auto;
+      font-size: 0.75em;
+      line-height: 1em;
+      display: inline-block; }
+  .charSheet .savesAndSkills #collapseSaves {
+    padding: 0.5em 0; }
+  .charSheet .savesAndSkills #collapseSkills {
+    padding: 0.5em 0; }
   .charSheet .statistics {
-    width: 200px; }
+    width: 150px;
+    text-align: center; }
     .charSheet .statistics .stat {
       display: inline-block; }
     .charSheet .statistics input {
       width: 3em; }
     .charSheet .statistics label {
       margin: 0.2em auto 0;
-      font-size: 0.65em;
+      font-size: 0.5em;
       line-height: 1em;
       display: block; }
+    .charSheet .statistics #shield {
+      positon: absolute;
+      top: 0;
+      margin: 0 auto;
+      width: 2.25em;
+      height: 3em; }
+      .charSheet .statistics #shield .border {
+        fill: #adb5bd;
+        stroke-miterlimit: 10;
+        stroke-width: 0.05em;
+        stroke: #212529; }
+      .charSheet .statistics #shield .middle {
+        fill: #dee2e6;
+        stroke-miterlimit: 10;
+        stroke-width: 0.1em;
+        stroke: #495057; }
+      .charSheet .statistics #shield .hilite {
+        fill: #e9ecef;
+        opacity: 0.5; }
+      .charSheet .statistics #shield .shape {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 0.1em;
+        stroke: #6c757d; }
+    .charSheet .statistics #plaque {
+      positon: absolute;
+      top: 0;
+      margin: 0 auto;
+      width: 2.25em;
+      height: 3em; }
+      .charSheet .statistics #plaque .outer {
+        fill: #adb5bd;
+        stroke-miterlimit: 10;
+        stroke-width: 0.05em;
+        stroke: #212529; }
+      .charSheet .statistics #plaque .inner {
+        fill: #e9ecef;
+        stroke: none; }
+      .charSheet .statistics #plaque .hilite {
+        fill: #e9ecef;
+        opacity: 0.5;
+        stroke: none; }
+      .charSheet .statistics #plaque .inner-outline {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 0.1em;
+        stroke: #495057; }
+    .charSheet .statistics .armorclass {
+      text-align: center;
+      position: relative;
+      width: 3.35em;
+      height: 3.6em;
+      overflow: hidden; }
+      .charSheet .statistics .armorclass #armorClass {
+        width: 1.25em;
+        position: absolute;
+        top: 0.5em;
+        left: 0.7em;
+        border: none;
+        background: transparent;
+        text-align: center;
+        padding: 0;
+        font-size: 1.25em;
+        line-height: 1em; }
+      .charSheet .statistics .armorclass label {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center; }
+    .charSheet .statistics .initiative {
+      text-align: center;
+      position: relative;
+      width: 2.75em;
+      height: 3.6em;
+      margin: 0 0.4em 0 0;
+      overflow: hidden; }
+      .charSheet .statistics .initiative input {
+        width: 1.25em;
+        position: absolute;
+        top: 0.5em;
+        left: 0.5em;
+        border: none;
+        background: transparent;
+        text-align: center;
+        padding: 0;
+        font-size: 1.25em;
+        line-height: 1em; }
+      .charSheet .statistics .initiative label {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center; }
+    .charSheet .statistics .speed {
+      text-align: center;
+      position: relative;
+      width: 2.25em;
+      height: 3.6em;
+      overflow: hidden; }
+      .charSheet .statistics .speed input {
+        width: 1.25em;
+        position: absolute;
+        top: 0.5em;
+        left: 0.25em;
+        border: none;
+        background: transparent;
+        text-align: center;
+        padding: 0;
+        font-size: 1.25em;
+        line-height: 1em; }
+      .charSheet .statistics .speed label {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center; }
+  .charSheet .about input {
+    width: 9em; }
+  .charSheet .about label {
+    margin: 0.2em auto 0;
+    font-size: 0.65em;
+    line-height: 1em;
+    display: block; }
+  .charSheet .attacks input {
+    width: 100%; }
+  .charSheet .equipment input {
+    width: 100%; }
 
 .mainView {
   position: absolute;
@@ -7162,11 +7323,12 @@ a.text-dark:hover, a.text-dark:focus {
 
 .close {
   position: absolute;
-  right: 0.25em;
+  right: 5px;
   top: 0;
   float: none;
-  font-size: 1em;
-  line-height: 1em; }
+  font-size: 15px;
+  line-height: 15px;
+  margin: 0; }
 
 .menu {
   background-color: rgba(0, 0, 0, 0.25);
@@ -7186,7 +7348,7 @@ a.text-dark:hover, a.text-dark:focus {
     width: 3em;
     height: 3em;
     text-align: center;
-    transition: all 0.5s ease-in-out; }
+    transition: all 0.3s ease-in-out; }
     .menu .btn.attribution-btn {
       position: absolute;
       bottom: 1em;
@@ -7196,16 +7358,32 @@ a.text-dark:hover, a.text-dark:focus {
       width: 40px;
       height: 45px;
       transition: all 0.5s ease-in-out; }
+    .menu .btn:focus {
+      box-shadow: none; }
 
 .attribution-container {
   display: none;
+  background: linear-gradient(rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.013)), url("/assets/img/leather.jpg") #000;
+  background-size: cover;
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
   width: 500px;
-  background-color: white;
-  padding: 1em;
-  cursor: default; }
+  transform: translate(-50%, -50%);
+  padding: 0 1em;
+  cursor: default;
+  color: #000;
+  z-index: 5;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */ }
+  .attribution-container .close {
+    text-shadow: none !important; }
   .attribution-container .main {
     margin: 1em 0; }
     .attribution-container .main small {
@@ -7216,39 +7394,60 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 0.75em;
     line-height: 1.5em; }
 
+.attribution-container::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; }
+
 .library-container {
   display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 88px;
+  left: 5px;
   width: 500px;
-  background-color: white;
+  background-color: #fff;
   padding: 1em; }
 
 .themes-container {
-  position: absolute;
-  top: 0;
   display: none;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.25);
-  padding: 0.5em;
-  z-index: 5; }
-  .themes-container .close {
-    text-shadow: none;
-    color: #fff; }
+  position: absolute;
+  top: 153px;
+  left: 5px;
+  width: 200px;
+  background-color: #fff;
+  padding: 0.5em; }
+  .themes-container .btn {
+    background-size: cover;
+    height: 2em;
+    width: 2em;
+    margin: 5px; }
 
 .theme-default {
-  background-image: url("../../assets/img/leather-pattern.jpg"); }
+  background-image: url("/assets/img/leather-pattern.jpg"); }
   .theme-default .menu .btn {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(0, 0, 0, 0.75); }
     .theme-default .menu .btn:hover {
       background-color: rgba(255, 255, 255, 0.35); }
     .theme-default .menu .btn svg {
-      fill: black; }
+      fill: #000; }
+
+.theme-worn {
+  background-image: url("/assets/img/leather.jpg"); }
+  .theme-worn .menu .btn {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 0, 0, 0.75); }
+    .theme-worn .menu .btn:hover {
+      background-color: rgba(255, 255, 255, 0.35); }
+    .theme-worn .menu .btn svg {
+      fill: #000; }
 
 .theme-light {
-  background-image: url("../../assets/img/leather-pattern-light.jpg"); }
+  background-image: url("/assets/img/leather-pattern-light.jpg"); }
   .theme-light .menu .btn {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(0, 0, 0, 0.75); }
@@ -7258,7 +7457,7 @@ a.text-dark:hover, a.text-dark:focus {
       fill: #000; }
 
 .theme-black {
-  background-image: url("../../assets/img/leather-pattern-black.jpg"); }
+  background-image: url("/assets/img/leather-pattern-black.jpg"); }
   .theme-black .menu .btn {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(0, 0, 0, 0.75); }
@@ -7268,7 +7467,7 @@ a.text-dark:hover, a.text-dark:focus {
       fill: #f8f9fa; }
 
 .theme-gray {
-  background-image: url("../../assets/img/leather-pattern-gray.jpg"); }
+  background-image: url("/assets/img/leather-pattern-gray.jpg"); }
   .theme-gray .menu .btn {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(0, 0, 0, 0.75); }
@@ -7278,18 +7477,36 @@ a.text-dark:hover, a.text-dark:focus {
       fill: #000; }
 
 .theme-red {
-  background-image: url("../../assets/img/leather-pattern-red.jpg"); }
+  background-image: url("/assets/img/leather-pattern-red.jpg"); }
   .theme-red .menu .btn {
     background-color: rgba(0, 0, 0, 0.15);
-    border-color: rgba(200, 190, 0, 0.75); }
+    border-color: rgba(200, 150, 0, 0.75); }
     .theme-red .menu .btn svg {
-      fill: rgba(180, 150, 0, 0.5); }
+      fill: rgba(180, 110, 0, 0.5); }
     .theme-red .menu .btn:hover {
       background-color: rgba(0, 0, 0, 0.35); }
       .theme-red .menu .btn:hover svg {
-        fill: rgba(180, 150, 0, 0.95); }
+        fill: rgba(180, 110, 0, 0.95); }
+
+.textSize {
+  height: 20px;
+  line-height: 0px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .textSize .btn {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 13px !important;
+    line-height: 1em !important;
+    padding: 1px !important;
+    margin: 0 !important; }
+    .textSize .btn:focus, .textSize .btn:active, .textSize .btn.focus, .textSize .btn.active {
+      box-shadow: none; }
 
 body {
   background-color: #432F20;
-  background-size: canvas;
-  transition: background 0.5s ease-in-out; }
+  background-size: cover;
+  transition: background 0.5s ease; }

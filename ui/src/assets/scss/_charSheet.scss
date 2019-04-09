@@ -10,9 +10,9 @@
     background-color: $gray-100;
     padding: 10px;
     overflow: wrap;
-    /* font-size:1em; */
+    font-size:0.6em;
     .btn {
-        font-size: 0.75em;
+        font-size: 0.125em;
     }
 
     .charCol {
@@ -94,7 +94,7 @@
         margin: 0 0.5em 0 0 ;
 
         input {
-            width: 1.5em;
+            width: 2em;
             height: 1.5em;
             text-align: center;
             line-height: 1em;
@@ -168,6 +168,11 @@
         .savingThrows,
         .skills {
             margin: 0 0 0.5em;
+            text-align:left;
+
+            button {
+                font-size:0.65em;
+            }
         }
 
         .save,
