@@ -1,9 +1,14 @@
-<div class="charSheet drag  rounded-sm border shadow">
+<div class="charSheet drag rounded-sm border shadow">
     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="textSize">
+        <button type="button" class="btn btn-light" id="font-size-down" aria-label="Shrink Text"><span aria-hidden="true">T&minus;</span></button>
+        <button type="button" class="btn btn-light" id="font-size-reset" aria-label="Enlarge Text"><span aria-hidden="true">T</span></button>
+        <button type="button" class="btn btn-light" id="font-size-up" aria-label="Enlarge Text"><span aria-hidden="true">T&plus;</span></button>
+    </div>
     <section class="information">
         <div class="info">
             <input id="charName" type="text" />
-            <label for="charName">Character Name</label>
+            <label for="charName">Name</label>
         </div>
         <div class="info">
             <input id="race" type="text" style="width:10em;" />
@@ -34,9 +39,14 @@
             <input id="playerName" type="text" style="width:8em;" />
             <label for="playerName">Player Name</label>
         </div>
+
+        <section class="playerPoints">
+            <input id="playerPoints" type="text" value="3" />
+            <label for="playerPoints">Player Points</label>
+        </section>
     </section>
 
-    <section class="charCol abilities">
+    <section class="charCol gutter abilities savesAndSkills">
         <div class="ability-box">
             <label for="str" title="Strength is your natural athleticism, bodily power">STR</label>
             <input id="str" class="ability" type="text" value="10" maxlength="2" />
@@ -67,13 +77,7 @@
             <input id="cha" class="ability" type="text" value="10" maxlength="2" />
             <div id="cha-Bonus" class="badge badge-secondary badge-pill modifier-bubble">0</div>
         </div>
-    </section>
 
-    <section class="charCol savesAndSkills">
-        <section class="inspiration">
-            <input id="insp" type="text" value="3" />
-            <label for="insp">Inspiration/Player Points</label>
-        </section>
         <section class="profBonus">
             <input id="profBonus" type="text" value="2" />
             <label for="profBonus">Proficiency Bonus</label>
@@ -84,54 +88,54 @@
                 Saving Throws
             </button>
             <div class="collapse" id="collapseSaves">
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="str"></div>
-                <label>Strength</label>
-            </div>
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="dex"></div>
-                <label>Dexterity</label>
-            </div>
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="con"></div>
-                <label>Constitution</label>
-            </div>
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="int"></div>
-                <label>Intelligence</label>
-            </div>
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="wis"></div>
-                <label>Wisdom</label>
-            </div>
-            <div class="save">
-                <svg class="icon-prof none" viewBox="0 0 14 14">
-                    <circle class="circle" cx="7" cy="7" r="6" />
-                    <circle class="dot" cx="7" cy="7" r="4" />
-                </svg>
-                <div class="profVal" id="cha"></div>
-                <label>Charisma</label>
-            </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="str"></div>
+                    <label>Strength</label>
+                </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="dex"></div>
+                    <label>Dexterity</label>
+                </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="con"></div>
+                    <label>Constitution</label>
+                </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="int"></div>
+                    <label>Intelligence</label>
+                </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="wis"></div>
+                    <label>Wisdom</label>
+                </div>
+                <div class="save">
+                    <svg class="icon-prof none" viewBox="0 0 14 14">
+                        <circle class="circle" cx="7" cy="7" r="6" />
+                        <circle class="dot" cx="7" cy="7" r="4" />
+                    </svg>
+                    <div class="profVal" id="cha"></div>
+                    <label>Charisma</label>
+                </div>
         </section>
 
         <section class="skills">
@@ -262,85 +266,49 @@
             </div>
         </section>
 
+        <section class="passPerc">
+            <input id="passPerc" type="text" value="" />
+            <label for="passPerc">Passive Perception</label>
+        </section>
+
     </section>
 
-    <section class="charCol statistics">
-        <div class="stat">
-            <input id="armorClass" type="text" />
+    <section class="charCol gutter statistics">
+        <div class="stat armorclass">
+            <svg id="shield" width="110" height="130" viewBox="0 0 110 130">
+                <path class="border" d="M106.39,23.25a17.11,17.11,0,0,1-10.23-4.46C91,14.37,94.3,7.63,94.3,7.63A85.29,85.29,0,0,0,75.47,2.05,136.09,136.09,0,0,0,54.15,0h-.71a140.92,140.92,0,0,0-21.5,2A84.23,84.23,0,0,0,13.11,7.58s3.26,6.74-1.86,11.16A17.06,17.06,0,0,1,1,23.25S-1.29,63,1,74.39s19.3,28.36,30.92,37.2a256.75,256.75,0,0,0,21.67,14.76v.11l.09,0,.09,0v-.11a255.14,255.14,0,0,0,21.67-14.76c11.62-8.8,28.56-25.8,30.92-37.2S106.39,23.25,106.39,23.25Z" />
+                <path class="middle" d="M53.71,116.56c-3.92-2.51-10.09-6.62-16.7-11.64C24.89,95.71,10.83,80.57,9.23,72.72c-1.34-6.57-.89-27.65-.17-42.84a27.29,27.29,0,0,0,7.67-4.71,16.62,16.62,0,0,0,5.76-12.09,88.44,88.44,0,0,1,11-2.75,130.33,130.33,0,0,1,20-1.91h.65A126.14,126.14,0,0,1,74,10.34a88.44,88.44,0,0,1,11,2.75,16.62,16.62,0,0,0,5.76,12.09,27.29,27.29,0,0,0,7.67,4.71c.71,15.19,1.17,36.27-.17,42.84-1.6,7.85-15.66,23-27.78,32.2C63.81,109.94,57.63,114.05,53.71,116.56Z" />
+                <path class="hilite" d="M53.69,126.42V0h-.25a140.92,140.92,0,0,0-21.5,2A84.23,84.23,0,0,0,13.11,7.61s3.26,6.74-1.86,11.16A17.14,17.14,0,0,1,1,23.25S-1.29,63,1,74.39s19.3,28.36,30.92,37.2a256.75,256.75,0,0,0,21.67,14.76v.11Z" fill="url(#linear-gradient-3)" />
+                <path class="shape" d="M53.71,116.56c-3.92-2.51-10.09-6.62-16.7-11.64C24.89,95.71,10.83,80.57,9.23,72.72c-1.34-6.57-.89-27.65-.17-42.84a27.29,27.29,0,0,0,7.67-4.71,16.62,16.62,0,0,0,5.76-12.09,88.44,88.44,0,0,1,11-2.75,130.33,130.33,0,0,1,20-1.91h.65A126.14,126.14,0,0,1,74,10.34a88.44,88.44,0,0,1,11,2.75,16.62,16.62,0,0,0,5.76,12.09,27.29,27.29,0,0,0,7.67,4.71c.71,15.19,1.17,36.27-.17,42.84-1.6,7.85-15.66,23-27.78,32.2C63.81,109.94,57.63,114.05,53.71,116.56Z" />
+            </svg>
+            <input id="armorClass" type="text" value="88" />
             <label for="armorClass">Armor Class</label>
         </div>
-        <div class="stat">
-            <input id="initiative" type="text" />
+
+        <div class="stat initiative">
+            <svg id="plaque" width="110" height="130" viewBox="0 0 110 125">
+                <rect class="outer" x="0" y="0" width="110" height="115" rx="15" ry="15" />
+                <rect class="inner" x="9" y="9" width="92" height="97" rx="10" ry="10" />
+                <rect class="hilite" x="0" y="0" width="55" height="115" rx="0" ry="0" />
+                <rect class="inner-outline" x="9" y="9" width="92" height="97" rx="10" ry="10" />
+            </svg>
+            <input id="initiative" type="text" value="88" />
             <label for="initiative">Initiative</label>
         </div>
-        <div class="stat">
-            <input id="speed" type="text" />
+        <div class="stat speed">
+            <svg id="plaque" width="110" height="130" viewBox="0 0 110 125">
+                <rect class="outer" x="0" y="0" width="110" height="115" rx="15" ry="15" />
+                <rect class="inner" x="9" y="9" width="92" height="97" rx="10" ry="10" />
+                <rect class="hilite" x="0" y="0" width="55" height="115" rx="0" ry="0" />
+                <rect class="inner-outline" x="9" y="9" width="92" height="97" rx="10" ry="10" />
+            </svg>
+            <input id="speed" type="text" value="88" />
             <label for="speed">Speed</label>
         </div>
+
         <div class="stat">
             <input id="hpMax" type="text" />
-            <label for="hpMax">HP Max</label>
-        </div>
-        <div class="stat">
-            <input id="hpCurrent" type="text" />
-            <label for="hpCurrent">Current HP</label>
-        </div>
-        <div class="stat">
-            <input id="hpTemp" type="text" />
-            <label for="hpTemp">Temporary HP</label>
-        </div>
-        <div class="stat">
-            <input id="hitDice" type="text" />
-            <label for="hitDice">Hit Dice</label>
-        </div>
-        <div class="stat">
-            <input id="hitDiceTotal" type="text" />
-            <label for="hitDiceTotal">Total Hit Dice</label>
-        </div>
-    </section>
-
-    <div class="charCol">
-        <section class="attacks">
-            <div class="atk">
-                <input id="atkName" type="text" />
-            </div>
-            <div class="atk">
-                <input id="atkBonus" type="text" />
-            </div>
-            <div class="atk">
-                <input id="atkDamage" type="text" />
-            </div>
-            <div class="atk">
-                <input id="atkType" type="text" />
-            </div>
-        </section>
-
-        <section class="equipment">
-            <div class="equip">
-                <input id="eqName" type="text" />
-            </div>
-            <div class="equip">
-                <input id="eqQty" type="text" />
-            </div>
-        </section>
-    </div>
-
-    <section class="charCol about">
-        <div class="stat">
-            <input id="armorClass" type="text" />
-            <label for="armorClass">Armor Class</label>
-        </div>
-        <div class="stat">
-            <input id="initiative" type="text" />
-            <label for="playerName">Initiative</label>
-        </div>
-        <div class="stat">
-            <input id="speed" type="text" />
-            <label for="speed">Speed</label>
-        </div>
-        <div class="stat">
-            <input id="hpMax" type="text" />
-            <label for="hpMax">Hit Point Maximum</label>
+            <label for="hpMax">Hit Points Max</label>
         </div>
         <div class="stat">
             <input id="hpCurrent" type="text" />
@@ -358,5 +326,67 @@
             <input id="hitDiceTotal" type="text" />
             <label for="hitDiceTotal">Total Hit Dice</label>
         </div>
+    </section>
+
+    <section class="charCol about">
+        <div class="stat">
+            <input id="armorClass" type="text" />
+            <label for="armorClass">Personality Traits</label>
+        </div>
+        <div class="stat">
+            <input id="initiative" type="text" />
+            <label for="playerName">Ideals</label>
+        </div>
+        <div class="stat">
+            <input id="speed" type="text" />
+            <label for="speed">Bonds</label>
+        </div>
+        <div class="stat">
+            <input id="hpMax" type="text" />
+            <label for="hpMax">Flaws</label>
+        </div>
+        <div class="stat">
+            <input id="hpCurrent" type="text" />
+            <label for="hpCurrent">Features & Traits</label>
+        </div>
+    </section>
+
+    <div class="charCol gutter attacks">
+        <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseAttacks" aria-expanded="false" aria-controls="collapseAttacks">
+            Attacks
+        </button>
+        <div class="collapse" id="collapseAttacks">
+            <section class="attacks">
+                <div class="atk">
+                    <input id="atkName" type="text" />
+                </div>
+                <div class="atk">
+                    <input id="atkBonus" type="text" />
+                </div>
+                <div class="atk">
+                    <input id="atkDamage" type="text" />
+                </div>
+                <div class="atk">
+                    <input id="atkType" type="text" />
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="charCol equipment">
+        <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseEquipment" aria-expanded="false" aria-controls="collapseAttacks">
+            Equipment
+        </button>
+        <div class="collapse" id="collapseEquipment">
+            <section class="equipment">
+                <div class="equip">
+                    <input id="eqName" type="text" />
+                </div>
+                <div class="equip">
+                    <input id="eqQty" type="text" />
+                </div>
+            </section>
+        </div>
+    </div>
 
 </div>

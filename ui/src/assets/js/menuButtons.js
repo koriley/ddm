@@ -16,6 +16,8 @@ jQuery(".menu .library-btn").click(function(){
 
 jQuery(".menu .themes-btn").click(function(){
     jQuery(".themes-container").toggle();
+    clearTop();
+    jQuery(".themes-container").addClass("onTop");
 })
 
 jQuery(".menu .attribution-btn").click(function(){

@@ -6,10 +6,16 @@ function updateAbilityBonus(myAbility) {
     if (!jQuery.isNumeric(ability)) {
         ability = 1;
         jQuery(myAbility).val(ability);
+
+
     }
 
     modifier = Math.floor((ability - 10) / 2);
     jQuery(myAbility).parent().children('.modifier-bubble').text(modifier);
+    
+    if (myAbility.attr('id') == 'wis') {
+        passivePerception();
+    }
 };
 
 
