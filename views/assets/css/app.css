@@ -7506,6 +7506,15 @@ a.text-dark:hover, a.text-dark:focus {
     .textSize .btn:focus, .textSize .btn:active, .textSize .btn.focus, .textSize .btn.active {
       box-shadow: none; }
 
+.npc {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  background-color: white;
+  padding: 1em; }
+
 body {
   background-color: #432F20;
   background-size: cover;
