@@ -23,6 +23,25 @@ function writeFile(filepath, data) {
     })
 }
 
+function getDirContents(dir){
+    return new Promise((resolve, reject)=>{
+        var files = {};
+        var fileNames = [];
+        try{
+            fs.readdirSync(dir).forEach((fileName)=>{
+                fileNames.push({
+                    "name":fileName
+                })
+                files = {"files":fileNames}
+
+            });
+            resolve(files);
+        }catch(error){
+            reject(error);
+        }
+        
+    })
+}
 //write test
 // var testObj  = "This is a write test";
 // writeFile("../test.txt", testObj);
