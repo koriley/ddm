@@ -42,6 +42,24 @@ function getDirContents(dir){
         
     })
 }
+
+function checkFileExist(path){
+    return new Promise((resolve, reject)=>{
+       if(!path){
+             reject("Path is invalid "+path)
+        }
+        try{
+            fs.access(path, fs.F_OK, (err)=>{
+                if(err){
+                    resolve("false");
+                }
+                resolve("true");
+            });
+        }catch (error){
+            reject("error");
+        }
+    });
+}
 //write test
 // var testObj  = "This is a write test";
 // writeFile("../test.txt", testObj);

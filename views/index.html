@@ -12,7 +12,19 @@
 
 <body class="theme-default">
 
-    <div class="menu ">
+    <div class="cover glass">
+        <div class="campaignSelector">
+            <div class="campaignSelectorBox">
+                Create a new campaign
+            </div>
+            <div class="campaignButtons">
+                <div class="newButton campaignButton" data-campaign="new">New Campaign</div>
+                <div class="loadButton campaignButton" data-campaign="load">Load Campaign</div>
+            </div>
+    
+            
+        </div>
+    </div><div class="menu ">
         <button type="button" data-open="charSheet" class="btn btn-light players-btn"><svg><use xlink:href="#people"></use></svg></button><br>
         <button type="button" data-open="library-container" class="btn btn-light library-btn"><svg><use xlink:href="#books"></use></svg></button><br>
         <button type="button" data-open="themes-container" class="btn btn-light themes-btn"><svg><use xlink:href="#themes"></use></svg></button><br>
@@ -457,13 +469,12 @@
             <select name="books">
                 <option value="All">All</option>
             </select>
-        
+            <div>this is a test</div>
         </div></div>
     
     <!-- <script src="assets/js/jquery.js" type="text/javascript"></script> -->
 
-    <script src="assets/js/jquery.js" type="text/javascript"
-        onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="assets/js/jquery.js" type="text/javascript" onload="window.$ = window.jQuery = module.exports;"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <!--<script src="assets/js/libs/popper.js"></script>
     <script src="assets/js/libs/bootstrap.js"></script>
