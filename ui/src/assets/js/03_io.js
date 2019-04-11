@@ -18,6 +18,8 @@ function writeFile(filepath, data) {
       fs.writeFile(filepath, data, (err) => {
           if (err) {
               reject(err);
+          }else{
+              resolve("File Written");
           }
       });
     })

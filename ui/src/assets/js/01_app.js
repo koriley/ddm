@@ -19,7 +19,10 @@ var campaignObj = {};
 
 ///
 
-
+//temp to cose the campaign picker.
+jQuery(".closeCampWindow").on("click", function(){
+  jQuery(".campaigns").remove();
+});
 
 jQuery("document").ready(function () {
   jQuery(".drag").draggable({

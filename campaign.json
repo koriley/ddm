@@ -1,7 +1,1 @@
-{
-    "campaigns": [{
-        "name": "campaign-a"
-    }, {
-        "name": "boglyWrath"
-    }]
-}
+{"campaigns":[{"name":"first campaign"}]}
