@@ -13,6 +13,7 @@ let campaignDirPath = "/campaigns/";
 var books = {};
 var npc = {};
 var campaignObj = {};
+var thisCampaign = {};
 ///
 
 //global vars

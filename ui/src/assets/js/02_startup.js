@@ -1,7 +1,10 @@
 jQuery(document).ready(function(){
   
   startApp().then((data)=>{
-    console.log(data);
+    setCampaigns(data).then((campList)=>{
+      jQuery(".campaignList").prepend(campList);
+    })
+    console.log(JSON.stringify(data));
     console.log(campaignObj)
   });
  
@@ -11,8 +14,10 @@ jQuery(document).ready(function(){
   function startApp(){
     return new Promise((resolve, reject)=>{
       try{
-        getCampaigns(campaignListPath);
-        resolve("startUp");
+        getCampaigns(campaignListPath).then((data)=>{
+          resolve(data);
+        });
+        
       } catch (error){
         reject(error);
       }
