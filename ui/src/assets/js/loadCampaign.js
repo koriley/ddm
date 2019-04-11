@@ -8,6 +8,7 @@ jQuery(".campaignButton").click(function () {
     }
 });
 
+//the delete button
 jQuery(".campaignSelectorBox").on("click", ".campDelete", function () {
     var toDelete = jQuery(this).attr("data-delete");
     // console.log("clicked");
@@ -28,6 +29,7 @@ function newCampaign() {
 
 }
 
+//Gets the list of campaigns
 function getCampaigns(path) {
     // console.log("getCampaigns " + path);
     checkFileExist(path).then((data) => {
@@ -36,12 +38,13 @@ function getCampaigns(path) {
             readAFile(path).then((campaigns) => {
                 campaigns = JSON.parse(campaigns);
                 campaignObj = campaigns;
-                setCampaigns(campaignObj)
+                setCampaigns(campaignObj);
             });
         }
     });
 }
 
+//Puts the list of campaigns on the campaign selector.
 function setCampaigns(campaigns) {
     return new Promise((resolve, reject) => {
         try {
