@@ -1,10 +1,10 @@
 function abrreviateLabels() {
-    var abbrWords = ['Speed|Spd','Initiative|Init ','Temporary |Temp ','Hit Points|HP','Armor Class|AC'];
+    var abbrWords = ['Speed|SPD','Initiative|INIT','Temporary|TEMP','Hit Points|HP','Armor Class|AC','Maximum|MAX','Current|CRNT','Experience Points|XP'];
     var mySize = jQuery('.charSheet').css('font-size');
     mySize = parseInt(mySize.split('px')[0]);
     // console.log(mySize);
     if (mySize<16) {
-        jQuery('.stat label').each( function(index, label) {
+        jQuery('label').each( function(index, label) {
             jQuery(abbrWords).each( function(index, word) {
                 var long = word.split('|')[0];
                 var short = word.split('|')[1];
@@ -14,7 +14,7 @@ function abrreviateLabels() {
             });
         })
     } else {
-        jQuery('.stat label').each( function(index, label) {
+        jQuery('label').each( function(index, label) {
             jQuery(abbrWords).each( function(index, word) {
                 var long = word.split('|')[0];
                 var short = word.split('|')[1];

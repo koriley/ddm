@@ -47,6 +47,10 @@
                     <path d="M86.195,48.245c-0.377-5.384-1.639-9.456-3.856-12.452c-2.604-3.511-8.3-4.484-13.716-4.319l-0.091-1.519   c3.046-1.268,5.206-4.276,5.206-7.751c0-4.634-3.771-8.404-8.405-8.404c-1.471,0-2.893,0.384-4.141,1.093   c-1.436-3.421-4.796-5.757-8.71-5.757c-2.711,0-5.218,1.154-6.97,3.068C43.804,9.371,40.692,7.5,37.217,7.5   c-3.914,0-7.339,2.321-8.854,5.765c-1.116-0.482-2.32-0.731-3.567-0.731c-4.983,0-9.038,4.054-9.038,9.037   c0,3.541,2.002,6.589,4.96,8.071l-3.208,53.316c-3.597,0.778-3.76,2.695-3.76,3.709c0,2.688,12.745,5.834,30.866,5.834   c18.119,0,30.863-3.146,30.863-5.834c0-1.014-0.164-2.931-3.76-3.709l-0.831-13.83c5.55-0.512,10.104-3.118,12.24-7.043   C84.912,58.81,86.57,53.627,86.195,48.245z M65.413,27.215c-0.037,0.001-0.074,0.002-0.11,0.005H41.324   c-0.935,0-1.694,0.759-1.694,1.693v8.917c0,1.116-0.908,2.024-2.024,2.024s-2.024-0.908-2.024-2.024v-8.917   c0-0.935-0.759-1.693-1.693-1.693h-0.739c-0.935,0-1.694,0.759-1.694,1.693v18.878c0,1.434-1.166,2.6-2.6,2.6   c-1.433,0-2.6-1.167-2.6-2.6v-18.89c0-0.914-0.727-1.664-1.641-1.692c-2.005-0.064-3.712-1.154-4.663-2.752   c-0.121-0.2-0.231-0.404-0.327-0.618c-0.041-0.092-0.074-0.186-0.109-0.28c-0.102-0.268-0.189-0.542-0.249-0.829   c-0.01-0.044-0.014-0.089-0.022-0.134c-0.062-0.333-0.1-0.674-0.1-1.026c0-3.115,2.535-5.649,5.65-5.649   c1.283,0,2.493,0.422,3.502,1.223c0.467,0.371,1.099,0.469,1.655,0.255c0.56-0.213,0.964-0.705,1.065-1.293   c0.525-3.023,3.131-5.217,6.199-5.217c3.137,0,5.817,2.345,6.235,5.455c0.104,0.779,0.733,1.385,1.516,1.459   c0.782,0.079,1.515-0.399,1.767-1.145c0.833-2.473,3.143-4.133,5.748-4.133c3.157,0,5.753,2.369,6.038,5.511   c0.062,0.68,0.527,1.257,1.178,1.462c0.65,0.208,1.363-0.002,1.804-0.522c0.958-1.136,2.354-1.786,3.831-1.786   c2.768,0,5.019,2.25,5.019,5.017c0,0.302-0.037,0.597-0.09,0.884c-0.011,0.063-0.021,0.125-0.034,0.187   c-0.06,0.261-0.138,0.516-0.235,0.76c-0.033,0.082-0.072,0.16-0.108,0.241c-0.084,0.178-0.176,0.35-0.279,0.516   c-0.081,0.132-0.169,0.258-0.261,0.382c-0.092,0.121-0.186,0.238-0.287,0.351c-0.095,0.105-0.189,0.207-0.292,0.305   c-0.146,0.136-0.297,0.266-0.458,0.384v0C67.491,26.821,66.496,27.199,65.413,27.215z M76.301,58.364   c-1.389,1.439-2.77,2.634-5.88,2.985L69.09,39.253c3.024-0.032,5.449,0.746,6.469,1.724c2.045,1.971,2.612,4.004,2.877,7.807   C78.7,52.592,77.807,56.804,76.301,58.364z" />
                 </symbol>
         
+                <symbol id="downAngle" viewBox="0 0 100 125">
+                    <polygon points="50,74.4 10,34.4 18.8,25.6 50,56.8 81.2,25.6 90,34.4  "/>
+                </symbol>
+                
             </defs>
         </svg>
         <div class="themes-container drag rounded-sm border shadow">
@@ -55,7 +59,6 @@
             </button>
             <section class="themes-buttons" role="presentation">
                 <button class="btn btn-light btn-sm theme-default" id="default"> </button>
-                <button class="btn btn-light btn-sm theme-worn" id="worn"> </button>
                 <button class="btn btn-light btn-sm theme-light" id="light"> </button>
                 <button class="btn btn-light btn-sm theme-black" id="black"> </button>
                 <button class="btn btn-light btn-sm theme-gray" id="gray"> </button>
@@ -74,21 +77,30 @@
                     <label for="charName">Name</label>
                 </div>
                 <div class="info">
-                    <input id="race" type="text" style="width:10em;" />
-                    <label for="race">Race</label>
+                    <input id="xp" type="text" maxlength="7" value="000,000"/>
+                    <label for="xp">XP</label>
                 </div>
                 <div class="info">
-                    <input id="xp" type="text" style="width:8em;" />
-                    <label for="xp">Experience Points</label>
-                </div>
-                <div class="info">
-                    <input id="level" type="text" style="width:2em; text-align:center;" />
+                    <input id="level" type="text" value="20" />
                     <label for="level">Level</label>
                 </div>
                 <div class="info">
-                    <input id="class" type="text" />
+                    <input id="class" type="text" value="Multi"/>
                     <label for="class">Class</label>
                 </div>
+                <div id="classManager">
+                    <div class="cmItem">
+                        <input class="cmClassLevel" id="cmClassLevel" type="text" value="5"/>
+                        <input class="cmClassName" id="cmClassName" type="text" value="Barbarian"/>
+                    </div>
+                </div>
+                <div class="info">
+                    <input id="race" type="text" value="Lightfoot Halfling"/>
+                    <label for="race">Race</label>
+                </div>
+        
+                <br clear="all"/>
+        
                 <div class="info">
                     <input id="background" type="text" />
                     <label for="background">Background</label>
@@ -103,10 +115,10 @@
                     <label for="playerName">Player Name</label>
                 </div>
         
-                <section class="playerPoints">
+                <div class="playerPoints">
                     <input id="playerPoints" type="text" value="3" />
                     <label for="playerPoints">Player Points</label>
-                </section>
+                </div>
             </section>
         
             <section class="charCol gutter abilities savesAndSkills">
@@ -345,7 +357,7 @@
                         <path class="shape" d="M53.71,116.56c-3.92-2.51-10.09-6.62-16.7-11.64C24.89,95.71,10.83,80.57,9.23,72.72c-1.34-6.57-.89-27.65-.17-42.84a27.29,27.29,0,0,0,7.67-4.71,16.62,16.62,0,0,0,5.76-12.09,88.44,88.44,0,0,1,11-2.75,130.33,130.33,0,0,1,20-1.91h.65A126.14,126.14,0,0,1,74,10.34a88.44,88.44,0,0,1,11,2.75,16.62,16.62,0,0,0,5.76,12.09,27.29,27.29,0,0,0,7.67,4.71c.71,15.19,1.17,36.27-.17,42.84-1.6,7.85-15.66,23-27.78,32.2C63.81,109.94,57.63,114.05,53.71,116.56Z" />
                     </svg>
                     <input id="armorClass" type="text" value="88" />
-                    <label for="armorClass">Armor Class</label>
+                    <label for="armorClass">AC</label>
                 </div>
         
                 <div class="stat initiative">
@@ -356,7 +368,7 @@
                         <rect class="inner-outline" x="9" y="9" width="92" height="97" rx="10" ry="10" />
                     </svg>
                     <input id="initiative" type="text" value="88" />
-                    <label for="initiative">Initiative</label>
+                    <label for="initiative">INIT</label>
                 </div>
                 <div class="stat speed">
                     <svg id="plaque" width="110" height="130" viewBox="0 0 110 125">
@@ -366,21 +378,28 @@
                         <rect class="inner-outline" x="9" y="9" width="92" height="97" rx="10" ry="10" />
                     </svg>
                     <input id="speed" type="text" value="88" />
-                    <label for="speed">Speed</label>
+                    <label for="speed">SPD</label>
                 </div>
         
-                <div class="stat">
-                    <input id="hpMax" type="text" />
-                    <label for="hpMax">Hit Points Max</label>
+                <br clear="all">
+        
+                <div class="hitPoints">
+                    <div class="stat">
+                        <input id="hpMax" type="text" value="888" />
+                        <label for="hpMax">MAX</label>
+                    </div>
+                    <div class="stat">
+                        <input id="hpCurrent" type="text" value="888" />
+                        <label class="hpCurrentLabel" for="hpCurrent">HP</label>
+                    </div>
+                    <div class="stat">
+                        <input id="hpTemp" type="text" value="888" />
+                        <label for="hpTemp">TEMP</label>
+                    </div>
                 </div>
-                <div class="stat">
-                    <input id="hpCurrent" type="text" />
-                    <label for="hpCurrent">Current Hit Points</label>
-                </div>
-                <div class="stat">
-                    <input id="hpTemp" type="text" />
-                    <label for="hpTemp">Temporary Hit Points</label>
-                </div>
+        
+                <br clear="all">
+        
                 <div class="stat">
                     <input id="hitDice" type="text" />
                     <label for="hitDice">Hit Dice</label>
@@ -391,67 +410,72 @@
                 </div>
             </section>
         
-            <section class="charCol about">
-                <div class="stat">
-                    <input id="armorClass" type="text" />
-                    <label for="armorClass">Personality Traits</label>
+            <section class="charCol">
+        
+                <div class="attacks">
+                    <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseAttacks" aria-expanded="false" aria-controls="collapseAttacks">
+                        Attacks
+                    </button>
+                    <div class="collapse" id="collapseAttacks">
+                        <section class="attacks">
+                            <div class="atk">
+                                <input id="atkName" type="text" />
+                            </div>
+                            <div class="atk">
+                                <input id="atkBonus" type="text" />
+                            </div>
+                            <div class="atk">
+                                <input id="atkDamage" type="text" />
+                            </div>
+                            <div class="atk">
+                                <input id="atkType" type="text" />
+                            </div>
+                        </section>
+                    </div>
                 </div>
-                <div class="stat">
-                    <input id="initiative" type="text" />
-                    <label for="playerName">Ideals</label>
+        
+                <div class="equipment">
+                    <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseEquipment" aria-expanded="false" aria-controls="collapseAttacks">
+                        Equipment
+                    </button>
+                    <div class="collapse" id="collapseEquipment">
+                        <section class="equipment">
+                            <div class="equip">
+                                <input id="eqName" type="text" />
+                            </div>
+                            <div class="equip">
+                                <input id="eqQty" type="text" />
+                            </div>
+                        </section>
+                    </div>
                 </div>
-                <div class="stat">
-                    <input id="speed" type="text" />
-                    <label for="speed">Bonds</label>
-                </div>
-                <div class="stat">
-                    <input id="hpMax" type="text" />
-                    <label for="hpMax">Flaws</label>
-                </div>
-                <div class="stat">
-                    <input id="hpCurrent" type="text" />
-                    <label for="hpCurrent">Features & Traits</label>
+        
+                <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout">
+                    About
+                </button>
+                <div class="collapse" id="collapseAbout">
+                    <div class="stat">
+                        <input id="armorClass" type="text" />
+                        <label for="armorClass">Personality Traits</label>
+                    </div>
+                    <div class="stat">
+                        <input id="initiative" type="text" />
+                        <label for="playerName">Ideals</label>
+                    </div>
+                    <div class="stat">
+                        <input id="speed" type="text" />
+                        <label for="speed">Bonds</label>
+                    </div>
+                    <div class="stat">
+                        <input id="hpMax" type="text" />
+                        <label for="hpMax">Flaws</label>
+                    </div>
+                    <div class="stat">
+                        <input id="hpCurrent" type="text" />
+                        <label for="hpCurrent">Features & Traits</label>
+                    </div>
                 </div>
             </section>
-        
-            <div class="charCol gutter attacks">
-                <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseAttacks" aria-expanded="false" aria-controls="collapseAttacks">
-                    Attacks
-                </button>
-                <div class="collapse" id="collapseAttacks">
-                    <section class="attacks">
-                        <div class="atk">
-                            <input id="atkName" type="text" />
-                        </div>
-                        <div class="atk">
-                            <input id="atkBonus" type="text" />
-                        </div>
-                        <div class="atk">
-                            <input id="atkDamage" type="text" />
-                        </div>
-                        <div class="atk">
-                            <input id="atkType" type="text" />
-                        </div>
-                    </section>
-                </div>
-            </div>
-        
-            <div class="charCol equipment">
-                <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseEquipment" aria-expanded="false" aria-controls="collapseAttacks">
-                    Equipment
-                </button>
-                <div class="collapse" id="collapseEquipment">
-                    <section class="equipment">
-                        <div class="equip">
-                            <input id="eqName" type="text" />
-                        </div>
-                        <div class="equip">
-                            <input id="eqQty" type="text" />
-                        </div>
-                    </section>
-                </div>
-            </div>
-        
         </div>
         <div class="attribution-container bg-light rounded-sm border-dark shadow">
             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
