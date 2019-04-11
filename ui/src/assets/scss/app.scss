@@ -1,6 +1,7 @@
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "customVariables";
+@import "helper";
 @import "charSheet";
 @import "mainBody";
 @import "onTop";
@@ -9,7 +10,12 @@
 @import "library";
 @import "themes";
 @import "npc";
+<<<<<<< HEAD
 @import "textSize";
+=======
+@import "campaignSelector";
+
+>>>>>>> master
 
 body {
     background-color: #432F20;

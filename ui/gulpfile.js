@@ -153,11 +153,10 @@ function clean(done) {
     rimraf("./dist", done)
     rimraf('../views/', done);
 }
-//gulp 3.9
-// gulp.task('clean', function () {
-//     return rimraf('dist', async function (done) {
-//         await gulp.start('build');
-//     });
+// gulp 3.9
+// gulp.task('delDir', function () {
+//      rimraf('dist', function (done){});
+//      rimraf('../views/', function (done){});
 // });
 
 // Copy page templates into finished HTML files
