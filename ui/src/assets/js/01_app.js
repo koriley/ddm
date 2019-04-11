@@ -12,7 +12,7 @@ let campaignDirPath = "/campaigns/";
 //glodal objects
 var books = {};
 var npc = {};
-var campaigns = {};
+var campaignObj = {};
 ///
 
 //global vars
@@ -26,6 +26,8 @@ jQuery("document").ready(function () {
       containment: ".mainView",
       scroll: false
   });
+
+
 });
 
 Object.prototype.hasOwnProperty = function(property) {
