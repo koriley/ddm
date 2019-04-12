@@ -1,3 +1,9 @@
+/**
+ * Need to build loading a campaign
+ * need new campaign to make sure its name is unique.
+ */
+
+
 jQuery(".campAdd").on("click", () => {
     newCampaign();
 });
