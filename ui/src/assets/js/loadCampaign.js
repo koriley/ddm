@@ -7,12 +7,18 @@ jQuery(".campaignList").on("click", ".campDelete", function () {
     var toDelete = jQuery(this).attr("data-delete");
     // console.log("clicked");
     //should add a are you sure popup
-    console.log("delet this number " + toDelete + " and this is the object" + JSON.stringify(campaignObj.campaigns));
-    campaignObj.campaigns.splice(toDelete);
-    console.log(JSON.stringify(campaignObj));
+    var newArray = campaignObj.campaigns;
+    // console.log(newArray)
+    // console.log("delet this number " + toDelete + " and this is the object" + JSON.stringify(campaignObj.campaigns));
+    newArray.splice(toDelete, 1);
+    // console.log(JSON.stringify(campaignObj));
     writeFile(campaignListPath, JSON.stringify(campaignObj)).then((data) => {
         if (data == "File Written") {
-            getCampaigns(campaignListPath);
+            getCampaigns(campaignListPath).then((data)=>{
+                setCampaigns(data).then((campList)=>{
+                    jQuery(".campaignList").html(campList);
+                })
+            });
         }
     })
 
@@ -25,14 +31,36 @@ jQuery(".campaignList").on("click", ".saveNewCamp", function(){
     // console.log(JSON.stringify(campaignObj))
     writeFile(campaignListPath, JSON.stringify(campaignObj)).then((data) => {
         if (data == "File Written") {
-            getCampaigns(campaignListPath).then((data)=>{
-                setCampaigns(data).then(function(campList){
-                    jQuery(".campaignList").html(campList);
-                })
+            // getCampaigns(campaignListPath).then((data)=>{
+            //     setCampaigns(data).then(function(campList){
+            //         jQuery(".campaignList").html(campList);
+            //     })
+            // })
+            createCampaign(newCampName).then((data)=>{
+                console.log(data);
             })
         }
     })
-})
+});
+
+function createCampaign(campName){
+    return new Promise((resolve, reject)=>{
+        let dir = campaignDirPath+campName;
+        try{
+            checkDirExist(dir).then((data)=>{
+                if(data == "false"){
+                    createDir(dir).then((data)=>{
+                        resolve(data);
+                    })
+                }
+               
+            });
+            
+        }catch (error){
+            reject(error);
+        }
+    });
+}
 
 function newCampaign() {
     getCampaigns(campaignListPath).then((data)=>{

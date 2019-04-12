@@ -62,6 +62,32 @@ function checkFileExist(path){
         }
     });
 }
+
+function checkDirExist(dir){
+    return new Promise((resolve, reject)=>{
+        try{
+            if(fs.existsSync(dir)){
+                resolve("true");
+            } else{
+                resolve("false");
+            }
+
+        }catch (error){
+            reject(error);
+        }
+    });
+}
+
+function createDir(dir){
+    return new Promise((resolve, reject)=>{
+        try{
+            fs.mkdirSync(dir);
+            resolve("done");
+        }catch (error){
+            reject(error);
+        }
+    });
+}
 //write test
 // var testObj  = "This is a write test";
 // writeFile("../test.txt", testObj);
