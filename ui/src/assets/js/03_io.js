@@ -88,6 +88,32 @@ function createDir(dir){
         }
     });
 }
+
+function removeSpace(string){
+    return new Promise((resolve, reject)=>{
+        try{
+            var cleanString = string.replace(/\s/g,spaceChar);
+            resolve(cleanString);
+        }catch (error){
+            reject(error);
+        }
+    })
+    
+    
+}
+
+function addSpace(string){
+    
+    return new Promise((resolve, reject)=>{
+        try{
+            var addSpace = new RegExp(spaceChar,"g")
+            var cleanString = string.replace(addSpace, /\s/ );
+            resolve(cleanString);
+        }catch (error){
+            reject(error);
+        }
+    })
+}
 //write test
 // var testObj  = "This is a write test";
 // writeFile("../test.txt", testObj);
