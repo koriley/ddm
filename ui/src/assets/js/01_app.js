@@ -1,7 +1,7 @@
 'use strict';
   // remove line below when testing frontend
-  var fs = require('fs');
-  
+  // var fs = require('fs');
+
 // Paths
 let campaignListPath = "./campaign.json";
 let bookPath = "./book/";
@@ -54,9 +54,8 @@ return this[property] !== undefined;
 //       }
 
 //     });
-   
+
 
 
 //   }
 // });
-

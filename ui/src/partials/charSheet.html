@@ -20,17 +20,20 @@
             <input id="class" type="text" value="Multi"/>
             <label for="class">Class</label>
         </div>
-        <div id="classManager">
+        <div class="classManager">
             <div class="cmItem">
-                <input class="cmClassLevel" id="cmClassLevel" type="text" value="5"/>
-                <input class="cmClassName" id="cmClassName" type="text" value="Barbarian"/>
+                <div><div class="hdt">12</div>Barbarian</div>
+                <div><div class="hdt">8</div>Librarian</div>
+            </div>
+            <div class="cmItem">
+                <input id="race" type="text" value="Lightfoot Halfling"/>
+                <label for="race">Race</label>
             </div>
         </div>
         <div class="info">
-            <input id="race" type="text" value="Lightfoot Halfling"/>
+            <input id="race" type="text" />
             <label for="race">Race</label>
         </div>
-
         <br clear="all"/>
 
         <div class="info">
@@ -328,18 +331,43 @@
                 <input id="hpTemp" type="text" value="888" />
                 <label for="hpTemp">TEMP</label>
             </div>
+
+            <div class="hitDice">
+                <button class="btn btn-outline-secondary btn-sm btn-block" type="button" data-toggle="collapse" data-target="#collapseHitDice" aria-expanded="false" aria-controls="collapseHitDice">
+                    Hit Dice: 20
+                </button>
+                <div class="collapse" id="collapseHitDice">
+                    <table>
+                        <tr class="classItem">
+                            <td class="className">Barbarian</td>
+                            <td class="classHDq">12</td>
+                            <td class="classHDd">d10</td>
+                        </tr>
+                        <tr class="classItem">
+                            <td class="className">Librarian</td>
+                            <td class="classHDq">7</td>
+                            <td class="classHDd">d12</td>
+                        </tr>
+                        <tr class="classItem">
+                            <td class="className">Rogue</td>
+                            <td class="classHDq">1</td>
+                            <td class="classHDd">d6</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <br clear="all">
+        <div class="deathSaves">
+            <svg><use xlink:href="#orc"></use>
+            <div class="save">
+                <div class="saveType">Success</div>
+            </div>
+            <div class="save">
+                <div class="saveType">Failure</div>
+            </div>
+        </div>
 
-        <div class="stat">
-            <input id="hitDice" type="text" />
-            <label for="hitDice">Hit Dice</label>
-        </div>
-        <div class="stat">
-            <input id="hitDiceTotal" type="text" />
-            <label for="hitDiceTotal">Total Hit Dice</label>
-        </div>
     </section>
 
     <section class="charCol">

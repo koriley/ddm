@@ -1,3 +1,4 @@
+jQuery('#classManager').hide();
 var getAllClasses = jQuery('.charSheet #class').val();
 
 

@@ -13,7 +13,7 @@
     font-size: 0.5625em;
 
     .btn {
-        font-size: 0.125em;
+        font-size: 0.5em;
     }
 
     .charCol {
@@ -101,15 +101,9 @@
 
         #class {
             width: 11em;
+
             &:after {
                 content: "<svg><use xlink:href="#downAngle"></use></svg>";
-            }
-        }
-
-        #classManager {
-            display:none;
-            .cmClassLevel {
-                width:2em;
             }
         }
 
@@ -119,8 +113,21 @@
         }
 
         svg {
-            width:1.25em;
-            height:1.25em;
+            width: 1.25em;
+            height: 1.25em;
+        }
+    }
+
+    .classManager {
+        display: none;
+        .cmItem {
+            font-size:0.5em;
+            .hdt {
+                display:inline-block;
+                width: 2em;
+                text-align:right;
+                margin:0 0.5em 0 0;
+            }
         }
     }
 
@@ -204,10 +211,6 @@
         .skills {
             margin: 0 0 0.5em;
             text-align: left;
-
-            button {
-                font-size: 0.65em;
-            }
         }
 
         .save,
@@ -432,12 +435,13 @@
         }
 
         .hitPoints {
-            position:relative;
-            display:inline-block;
-            margin: 0.5em 0;
+            position: relative;
+            display: inline-block;
+            min-width:110px;
+            margin: 0.5em auto;
             padding: 0.25em;
             border: 2px ridge $gray-300;
-            border-radius: 0.5em;
+            border-radius: 0.2rem;
             background-color: $gray-200;
             text-align: center;
 
@@ -449,21 +453,74 @@
 
             label {
                 font-size: 0.4em;
-                color:$gray-600;
+                color: $gray-600;
+
                 &.hpCurrentLabel {
                     font-size: 0.6em;
-                    font-weight:bold;
-                    color:$black;
+                    font-weight: bold;
+                    color: $black;
                 }
             }
 
             #hpCurrent {
                 width: 2.8em;
                 font-size: 1em;
-                font-weight:bold;
-                border-weight:bold;
+                font-weight: bold;
+                border-weight: bold;
             }
 
+            .hitDice {
+                background-color:rgba(255,255,255,0.25);
+                border:1px solid rgba(0,0,0,0.25);
+                border-radius: .2rem;
+                padding:0.2em;
+                margin: 0.1em ;
+
+                table {
+                    margin-top:0.2em;
+                    width:100%;
+                    border-collapse: separate;
+                    border-spacing: 1px;
+                }
+                .classItem {
+                    font-size: 0.5em;
+
+                    .className {
+                        width:60%;
+                        display:inline-block;
+                        text-align:right;
+                        color: $gray-600;
+                    }
+                    .classHDq {
+                        width:15%;
+                        display:inline-block;
+                        text-align:right;
+                    }
+                    .classHDd {
+                        width:25%;
+                        display:inline-block;
+                        text-align:left;
+                    }
+                }
+            }
+        }
+
+        .deathSaves {
+            position: relative;
+            display: inline-block;
+            min-width:110px;
+            margin: 0.5em auto;
+            padding: 0.25em;
+            border: 2px ridge $gray-300;
+            border-radius: 0.2rem;
+            background-color: $gray-200;
+            text-align: left;
+
+            .reaper {
+                width:1em;
+                height:1em;
+                
+            }
         }
     }
 
