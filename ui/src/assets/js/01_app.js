@@ -1,22 +1,24 @@
 'use strict';
   // remove line below when testing frontend
-  // var fs = require('fs');
+  var fs = require('fs');
+  var rimraf = require("rimraf");
 
 // Paths
 let campaignListPath = "./campaign.json";
 let bookPath = "./book/";
-let campaignDirPath = "/campaigns/";
-
+let campaignDirPath = "./campaigns/";
+let thisCampaignPath;
 ///
 
 //glodal objects
 var books = {};
 var npc = {};
 var campaignObj = {};
+var thisCampaign = {};
 ///
 
 //global vars
-
+let spaceChar = "__";
 ///
 
 //temp to cose the campaign picker.

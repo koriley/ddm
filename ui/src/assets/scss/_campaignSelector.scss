@@ -17,6 +17,12 @@
         display: inline-block;
         margin: 0;
         vertical-align: top;
+        position: relative;
+        .campAdd{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
     }
 
     .campaignButtons {
@@ -31,11 +37,6 @@
             padding: 15px;
             text-align: center;
             margin: 15px;
-        }
-
-        .newButton {
-            background-color: blue;
-            color: white
         }
 
         .loadButton {
