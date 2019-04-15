@@ -1,7 +1,7 @@
 'use strict';
   // remove line below when testing frontend
-  // var fs = require('fs');
-  // var rimraf = require("rimraf");
+  var fs = require('fs');
+  var rimraf = require("rimraf");
 
 // Paths
 let campaignListPath = "./campaign.json";
