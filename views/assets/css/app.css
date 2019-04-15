@@ -7039,7 +7039,7 @@ a.text-dark:hover, a.text-dark:focus {
   left: 5px;
   display: inline-block;
   /* min-width: 200px;
-    max-width: 600px; */
+max-width: 600px; */
   min-height: 100px;
   background-color: #f8f9fa;
   padding: 10px;
@@ -7331,6 +7331,7 @@ a.text-dark:hover, a.text-dark:focus {
         width: 100%;
         text-align: center; }
     .charSheet .statistics .hitPoints {
+      cursor: default;
       position: relative;
       display: inline-block;
       min-width: 110px;
@@ -7383,21 +7384,44 @@ a.text-dark:hover, a.text-dark:focus {
             display: inline-block;
             text-align: left; }
     .charSheet .statistics .deathSaves {
+      cursor: default;
       position: relative;
       display: inline-block;
-      min-width: 110px;
+      width: 7em;
+      min-width: 70px;
       margin: 0.5em auto;
       padding: 0.25em;
       border: 2px ridge #dee2e6;
       border-radius: 0.2rem;
       background-color: #e9ecef;
       text-align: left; }
-      .charSheet .statistics .deathSaves .reaper svg {
-        width: 2.25em;
+      .charSheet .statistics .deathSaves .deathHeading {
+        font-size: 0.5em;
+        text-align: center; }
+      .charSheet .statistics .deathSaves .reaper {
+        float: left;
+        width: 2em;
         height: 3em;
-        fill: #adb5bd; }
-      .charSheet .statistics .deathSaves .saveType {
-        font-size: .5em; }
+        margin-right: 5px; }
+        .charSheet .statistics .deathSaves .reaper svg {
+          width: 100%;
+          height: 100%;
+          fill: #adb5bd; }
+      .charSheet .statistics .deathSaves .icon {
+        cursor: pointer;
+        display: inline-block;
+        width: 1em;
+        min-width: 10px;
+        height: 1em;
+        min-height: 10px; }
+        .charSheet .statistics .deathSaves .icon svg {
+          width: 100%;
+          height: 100%;
+          fill: #adb5bd; }
+      .charSheet .statistics .deathSaves .save.active svg {
+        fill: #28a745; }
+      .charSheet .statistics .deathSaves .fail.active svg {
+        fill: #dc3545; }
   .charSheet .about input {
     width: 9em; }
   .charSheet .about label {
