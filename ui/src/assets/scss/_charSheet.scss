@@ -82,6 +82,7 @@
             font-size: 0.75em;
         }
 
+        #classLabel,
         label {
             margin: 0.2em auto 0;
             font-size: 0.5em;
@@ -101,10 +102,6 @@
 
         #class {
             width: 11em;
-
-            &:after {
-                content: "<svg><use xlink:href="#downAngle"></use></svg>";
-            }
         }
 
         #race {
@@ -120,13 +117,15 @@
 
     .classManager {
         display: none;
+
         .cmItem {
-            font-size:0.5em;
+            font-size: 0.5em;
+
             .hdt {
-                display:inline-block;
+                display: inline-block;
                 width: 2em;
-                text-align:right;
-                margin:0 0.5em 0 0;
+                text-align: right;
+                margin: 0 0.5em 0 0;
             }
         }
     }
@@ -437,7 +436,7 @@
         .hitPoints {
             position: relative;
             display: inline-block;
-            min-width:110px;
+            min-width: 110px;
             margin: 0.5em auto;
             padding: 0.25em;
             border: 2px ridge $gray-300;
@@ -470,36 +469,39 @@
             }
 
             .hitDice {
-                background-color:rgba(255,255,255,0.25);
-                border:1px solid rgba(0,0,0,0.25);
-                border-radius: .2rem;
-                padding:0.2em;
-                margin: 0.1em ;
+                background-color: rgba(255,255,255,0.25);
+                border: 1px solid rgba(0,0,0,0.25);
+                border-radius: 0.2rem;
+                padding: 0.2em;
+                margin: 0.1em;
 
                 table {
-                    margin-top:0.2em;
-                    width:100%;
+                    margin-top: 0.2em;
+                    width: 100%;
                     border-collapse: separate;
                     border-spacing: 1px;
                 }
+
                 .classItem {
                     font-size: 0.5em;
 
                     .className {
-                        width:60%;
-                        display:inline-block;
-                        text-align:right;
+                        width: 60%;
+                        display: inline-block;
+                        text-align: right;
                         color: $gray-600;
                     }
+
                     .classHDq {
-                        width:15%;
-                        display:inline-block;
-                        text-align:right;
+                        width: 15%;
+                        display: inline-block;
+                        text-align: right;
                     }
+
                     .classHDd {
-                        width:25%;
-                        display:inline-block;
-                        text-align:left;
+                        width: 25%;
+                        display: inline-block;
+                        text-align: left;
                     }
                 }
             }
@@ -508,7 +510,7 @@
         .deathSaves {
             position: relative;
             display: inline-block;
-            min-width:110px;
+            min-width: 110px;
             margin: 0.5em auto;
             padding: 0.25em;
             border: 2px ridge $gray-300;
@@ -517,9 +519,14 @@
             text-align: left;
 
             .reaper {
-                width:1em;
-                height:1em;
-                
+                svg {
+                    width: 2.25em;
+                    height: 3em;
+                    fill:$gray-500;
+                }
+            }
+            .saveType {
+                font-size:.5em;
             }
         }
     }

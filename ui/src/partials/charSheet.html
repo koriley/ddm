@@ -18,7 +18,8 @@
         </div>
         <div class="info">
             <input id="class" type="text" value="Multi"/>
-            <label for="class">Class</label>
+            <div id="classLabel">Class</div>
+
         </div>
         <div class="classManager">
             <div class="cmItem">
@@ -359,13 +360,45 @@
         </div>
 
         <div class="deathSaves">
-            <svg><use xlink:href="#orc"></use>
-            <div class="save">
+            <table>
+                <tr>
+                    <td rowspan="2" class="reaper">
+                        <svg><use xlink:href="#death"></use>
+                    </td>
+            <td class="save">
                 <div class="saveType">Success</div>
-            </div>
-            <div class="save">
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+            </td>
+            </tr>
+            <tr>
+            <td class="save">
                 <div class="saveType">Failure</div>
-            </div>
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+                <svg class="icon-prof none" viewBox="0 0 14 14">
+                    <circle class="circle" cx="7" cy="7" r="6" />
+                    <circle class="dot" cx="7" cy="7" r="4" />
+                </svg>
+            </td>
+            </tr>
+            </table>
         </div>
 
     </section>
