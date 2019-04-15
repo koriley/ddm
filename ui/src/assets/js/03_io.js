@@ -1,8 +1,8 @@
 'use strict';
 
-function readAFile(filepath){
+function readAFile(filepath) {
     return new Promise((resolve, reject) => {
-        fs.readFile(filepath, 'utf-8', function(err, data) {
+        fs.readFile(filepath, 'utf-8', function (err, data) {
             if (err) {
                 reject("An error ocurred reading the file :" + err.message);
                 return;
@@ -15,101 +15,101 @@ function readAFile(filepath){
 
 function writeFile(filepath, data) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(filepath, data, (err) => {
-          if (err) {
-              reject(err);
-          }else{
-              resolve("File Written");
-          }
-      });
+        fs.writeFile(filepath, data, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve("File Written");
+            }
+        });
     })
 }
 
-function getDirContents(dir){
-    return new Promise((resolve, reject)=>{
+function getDirContents(dir) {
+    return new Promise((resolve, reject) => {
         var files = {};
         var fileNames = [];
-        try{
-            fs.readdirSync(dir).forEach((fileName)=>{
+        try {
+            fs.readdirSync(dir).forEach((fileName) => {
                 fileNames.push({
-                    "name":fileName
+                    "name": fileName
                 })
-                files = {"files":fileNames}
+                files = { "files": fileNames }
 
             });
             resolve(files);
-        }catch(error){
+        } catch (error) {
             reject(error);
         }
-        
+
     })
 }
 
-function checkFileExist(path){
-    return new Promise((resolve, reject)=>{
-       if(!path){
-             reject("Path is invalid "+path)
+function checkFileExist(path) {
+    return new Promise((resolve, reject) => {
+        if (!path) {
+            reject("Path is invalid " + path)
         }
-        try{
-            fs.access(path, fs.F_OK, (err)=>{
-                if(err){
+        try {
+            fs.access(path, fs.F_OK, (err) => {
+                if (err) {
                     resolve("false");
                 }
                 resolve("true");
             });
-        }catch (error){
+        } catch (error) {
             reject("error");
         }
     });
 }
 
-function checkDirExist(dir){
-    return new Promise((resolve, reject)=>{
-        try{
-            if(fs.existsSync(dir)){
+function checkDirExist(dir) {
+    return new Promise((resolve, reject) => {
+        try {
+            if (fs.existsSync(dir)) {
                 resolve("true");
-            } else{
+            } else {
                 resolve("false");
             }
 
-        }catch (error){
+        } catch (error) {
             reject(error);
         }
     });
 }
 
-function createDir(dir){
-    return new Promise((resolve, reject)=>{
-        try{
+function createDir(dir) {
+    return new Promise((resolve, reject) => {
+        try {
             fs.mkdirSync(dir);
             resolve("done");
-        }catch (error){
+        } catch (error) {
             reject(error);
         }
     });
 }
 
-function removeSpace(string){
-    return new Promise((resolve, reject)=>{
-        try{
-            var cleanString = string.replace(/\s/g,spaceChar);
+function removeSpace(string) {
+    return new Promise((resolve, reject) => {
+        try {
+            var cleanString = string.replace(/\s/g, spaceChar);
             resolve(cleanString);
-        }catch (error){
+        } catch (error) {
             reject(error);
         }
     })
-    
-    
+
+
 }
 
-function addSpace(string){
-    
-    return new Promise((resolve, reject)=>{
-        try{
-            var addSpace = new RegExp(spaceChar,"g")
-            var cleanString = string.replace(addSpace, /\s/ );
+function addSpace(string) {
+
+    return new Promise((resolve, reject) => {
+        try {
+            var addSpace = new RegExp(spaceChar, "g")
+            var cleanString = string.replace(addSpace, /\s/);
             resolve(cleanString);
-        }catch (error){
+        } catch (error) {
             reject(error);
         }
     })

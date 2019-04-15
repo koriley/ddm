@@ -8,31 +8,38 @@ jQuery(".campAdd").on("click", () => {
     newCampaign();
 });
 
+jQuery(".campaignList").on("click", ".campLoad", function () {
+    var toLoad = jQuery(this).attr("data-load");
+    var thisName = jQuery(this).attr("data-name");
+    var thisDir;
+    //   console.log(toLoadName)
+    removeSpace(thisName).then((name) => {
+        thisDir = campaignDirPath + name + "/camp.json";
+        checkFileExist(thisDir).then((data) => {
+            if (data == "false") {
+                alert("This campaign doesn't exist... Now deleting");
+                deleteCampaign(thisName, toLoad)
+            } else {
+                readAFile(thisDir).then((data) => {
+                    thisCampaign == JSON.parse(JSON.stringify(data));
+                    //Will need to load up all the books and stuff, 
+                    //but we need to figure out the obj
+                    // so for now we will just go to the ui
+                    jQuery(".campaigns").remove();
+                })
+            }
+        })
+
+    })
+})
+
 //the delete button
 jQuery(".campaignList").on("click", ".campDelete", function () {
     var toDelete = jQuery(this).attr("data-delete");
     var toDeleteName = jQuery(this).attr("data-name");
     // console.log("clicked");
     //should add a are you sure popup
-    var newArray = campaignObj.campaigns;
-    // console.log(newArray)
-    // console.log("delet this number " + toDelete + " and this is the object" + JSON.stringify(campaignObj.campaigns));
-    newArray.splice(toDelete, 1);
-    // console.log(JSON.stringify(campaignObj));
-    writeFile(campaignListPath, JSON.stringify(campaignObj)).then((data) => {
-        if (data == "File Written") {
-            removeSpace(toDeleteName).then((data) => {
-                rimraf(campaignDirPath + data, (stuff) => {
-                    console.log(stuff)
-                    getCampaigns(campaignListPath).then((data) => {
-                        setCampaigns(data).then((campList) => {
-                            jQuery(".campaignList").html(campList);
-                        })
-                    });
-                });
-            });
-        }
-    })
+    deleteCampaign(toDeleteName, toDelete)
 });
 
 jQuery(".campaignList").on("click", ".saveNewCamp", function () {
@@ -68,6 +75,29 @@ jQuery(".campaignList").on("click", ".saveNewCamp", function () {
     });
 });
 
+function deleteCampaign(toDeleteName, toDelete) {
+    return new Promise((resolve, reject) => {
+        var newArray = campaignObj.campaigns;
+        // console.log(newArray)
+        // console.log("delet this number " + toDelete + " and this is the object" + JSON.stringify(campaignObj.campaigns));
+        newArray.splice(toDelete, 1);
+        // console.log(JSON.stringify(campaignObj));
+        writeFile(campaignListPath, JSON.stringify(campaignObj)).then((data) => {
+            if (data == "File Written") {
+                removeSpace(toDeleteName).then((data) => {
+                    rimraf(campaignDirPath + data, (stuff) => {
+                        // console.log(stuff)
+                        getCampaigns(campaignListPath).then((data) => {
+                            setCampaigns(data).then((campList) => {
+                                jQuery(".campaignList").html(campList);
+                            })
+                        });
+                    });
+                });
+            }
+        })
+    })
+}
 
 function createCampaign(campName) {
     return new Promise((resolve, reject) => {
@@ -128,9 +158,9 @@ function setCampaigns(campaigns) {
             var campArray = campaigns.campaigns;
             var html = "<table>";
             campArray.forEach(function (node, i) {
-                console.log(JSON.stringify(node))
+                // console.log(JSON.stringify(node))
                 // console.log(campaigns.campaigns[i].name)
-                html += "<tr><td>" + campaigns.campaigns[i].name + "</td><td><button type='button' data-load='" + campaigns.campaigns[i].name + "' class='btn btn-primary campLoad'>Load</button><button type='button' data-name='" + campaigns.campaigns[i].name + "' data-delete='" + i + "' class='btn btn-primary campDelete'>Delete</button></td></tr>";
+                html += "<tr><td>" + campaigns.campaigns[i].name + "</td><td><button type='button' data-name='" + campaigns.campaigns[i].name + "' data-load='" + i + "' class='btn btn-primary campLoad'>Load</button><button type='button' data-name='" + campaigns.campaigns[i].name + "' data-delete='" + i + "' class='btn btn-primary campDelete'>Delete</button></td></tr>";
             })
             html += "</table>";
 

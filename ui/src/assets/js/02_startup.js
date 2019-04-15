@@ -4,8 +4,8 @@ jQuery(document).ready(function(){
     setCampaigns(data).then((campList)=>{
       jQuery(".campaignList").prepend(campList);
     })
-    console.log(JSON.stringify(data));
-    console.log(campaignObj)
+    // console.log(JSON.stringify(data));
+    // console.log(campaignObj)
   });
  
   })
