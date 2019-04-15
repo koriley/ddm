@@ -1,5 +1,5 @@
 //themes
-var buttonOptions = ['default', 'black', 'gray', 'light', 'red'];
+var buttonOptions = ['default', 'worn', 'light', 'black', 'gray', 'red'];
 jQuery(buttonOptions).each(function() {
     var myStyle = this;
     var myId = '#' + myStyle;

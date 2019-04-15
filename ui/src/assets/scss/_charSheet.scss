@@ -1,21 +1,37 @@
 .charSheet {
-    display: none;
+    /* display: none; */
     position: absolute;
-    top: 0;
-    width: 600px;
-    background-color: $white;
-    padding: 1em;
+    top: 25px;
+    left: 5px;
+    display: inline-block;
+    /* min-width: 200px;
+max-width: 600px; */
+    min-height: 100px;
+    background-color: $gray-100;
+    padding: 10px;
+    overflow: wrap;
+    font-size: 0.5625em;
+
+    .btn {
+        font-size: 0.5em;
+    }
 
     .charCol {
+        width: 10em;
+        min-width: 125px;
         display: inline-block;
+        float: left;
         position: relative;
-        vertical-align:top;
+        vertical-align: top;
+
+        &.gutter {
+            margin-right: 1em;
+        }
     }
 
     .icon-prof {
         width: 15px;
         height: 15px;
-
 
         .circle {
             stroke: $gray-500;
@@ -50,16 +66,14 @@
             }
         }
     }
-    svg path {
-        all: inherit;
-    }
+
     .information {
         display: block;
-        margin:0 0 1em;
+        margin: 0.5em 0 2em;
     }
 
     .info {
-        margin: 0.5rem 0.5rem 0 0;
+        margin: 0.75em 0.75em 0 0;
         display: inline-block;
 
         input {
@@ -68,37 +82,97 @@
             font-size: 0.75em;
         }
 
+        #classLabel,
         label {
             margin: 0.2em auto 0;
-            font-size: 0.65em;
+            font-size: 0.5em;
             line-height: 1em;
             display: block;
         }
+
+        #xp {
+            text-align: right;
+            width: 5.5em;
+        }
+
+        #level {
+            width: 2em;
+            text-align: center;
+        }
+
+        #class {
+            width: 11em;
+        }
+
+        #race {
+            width: 10em;
+            margin-right: 0;
+        }
+
+        svg {
+            width: 1.25em;
+            height: 1.25em;
+        }
     }
 
-    .abilities {
-        width: 50px;
+    .classManager {
+        display: none;
+
+        .cmItem {
+            font-size: 0.5em;
+
+            .hdt {
+                display: inline-block;
+                width: 2em;
+                text-align: right;
+                margin: 0 0.5em 0 0;
+            }
+        }
     }
 
-    .ability-box {
-        text-align: center;
-        position: relative;
-        margin: 0 auto 0.25rem;
+    .playerPoints {
+        display: inline-block;
+        margin: 0 0 0 1em;
+
+        #playerPoints {
+            width: 2em;
+            height: 2em;
+            text-align: center;
+            line-height: 1em;
+        }
 
         label {
             margin: 0 auto;
             font-size: 0.65em;
+            line-height: 1em;
+            display: inline-block;
+        }
+    }
+
+    .abilities {
+        text-align: center;
+    }
+
+    .ability-box {
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        margin: 0 0.75em 0.25em 0;
+
+        label {
+            margin: 0 auto;
+            font-size: 0.5em;
             line-height: 1em;
             display: block;
         }
 
         input {
-            width: 2.7em;
-            height: 2.7em;
+            width: 2.5em;
+            height: 2.25em;
             margin: 0 auto;
             text-align: center;
-            padding: 0 0.2em 1em;
-            font-size: 0.7em;
+            padding: 0.25em 0 1em;
+            font-size: 0.75em;
         }
 
         .modifier-bubble {
@@ -113,29 +187,16 @@
         }
     }
 
-    .inspiration {
-        margin:0 0 .5em;
+    .profBonus {
+        margin: 0 0 0.5em;
+
         input {
-            width:1.5em;
-            height:1.5em;
+            width: 1.5em;
+            height: 1.5em;
             text-align: center;
             line-height: 1em;
         }
-        label {
-            margin: 0 auto;
-            font-size: 0.6em;
-            line-height: 1em;
-            display: inline-block;
-        }
-    }
-    .profBonus{
-        margin:0 0 .5em;
-        input {
-            width:1.5em;
-            height:1.5em;
-            text-align: center;
-            line-height: 1em;
-        }
+
         label {
             margin: 0 auto;
             font-size: 0.75em;
@@ -145,12 +206,14 @@
     }
 
     .savesAndSkills {
-        width: 150px;
-        margin: 0 1em;
-        .savingThrows, .skills {
-            margin: 0 0 0.5em 0;
+        .savingThrows,
+        .skills {
+            margin: 0 0 0.5em;
+            text-align: left;
         }
-        .save, .skill {
+
+        .save,
+        .skill {
             position: relative;
 
             .profVal {
@@ -168,28 +231,364 @@
                 line-height: 1em;
 
                 em {
-                    color:$gray-500;
+                    color: $gray-500;
                 }
             }
         }
 
+        .passPerc {
+            margin: 0 0 0.5em;
+
+            input {
+                width: 2em;
+                height: 1.5em;
+                text-align: center;
+                line-height: 1em;
+            }
+
+            label {
+                margin: 0 auto;
+                font-size: 0.75em;
+                line-height: 1em;
+                display: inline-block;
+            }
+        }
+
+        #collapseSaves {
+            padding: 0.5em 0;
+        }
+
+        #collapseSkills {
+            padding: 0.5em 0;
+        }
     }
 
     .statistics {
-        width: 200px;
+        text-align: center;
 
         .stat {
-            display:inline-block;
+            display: inline-block;
         }
 
         input {
-            width:3em;
+            width: 3em;
         }
+
+        label {
+            margin: 0.2em auto 0;
+            font-size: 0.5em;
+            line-height: 1em;
+            display: block;
+        }
+
+        #shield {
+            positon: absolute;
+            top: 0;
+            margin: 0 auto;
+            width: 2.25em;
+            height: 3em;
+
+            .border {
+                fill: $gray-500;
+                stroke-miterlimit: 10;
+                stroke-width: 0.05em;
+                stroke: $gray-900;
+            }
+
+            .middle {
+                fill: $gray-300;
+                stroke-miterlimit: 10;
+                stroke-width: 0.1em;
+                stroke: $gray-700;
+            }
+
+            .hilite {
+                fill: $gray-200;
+                opacity: 0.5;
+            }
+
+            .shape {
+                fill: none;
+                stroke-miterlimit: 10;
+                stroke-width: 0.1em;
+                stroke: $gray-600;
+            }
+        }
+
+        #plaque {
+            positon: absolute;
+            top: 0;
+            margin: 0 auto;
+            width: 2.25em;
+            height: 3em;
+
+            .outer {
+                fill: $gray-500;
+                stroke-miterlimit: 10;
+                stroke-width: 0.05em;
+                stroke: $gray-900;
+            }
+
+            .inner {
+                fill: $gray-200;
+                stroke: none;
+            }
+
+            .hilite {
+                fill: $gray-200;
+                opacity: 0.5;
+                stroke: none;
+            }
+
+            .inner-outline {
+                fill: none;
+                stroke-miterlimit: 10;
+                stroke-width: 0.1em;
+                stroke: $gray-700;
+            }
+        }
+
+        .armorclass {
+            text-align: center;
+            position: relative;
+            width: 3.35em;
+            height: 3.6em;
+            overflow: hidden;
+
+            #armorClass {
+                width: 1.25em;
+                position: absolute;
+                top: 0.5em;
+                left: 0.7em;
+                border: none;
+                background: transparent;
+                text-align: center;
+                padding: 0;
+                font-size: 1.25em;
+                line-height: 1em;
+            }
+
+            label {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .initiative {
+            text-align: center;
+            position: relative;
+            width: 2.75em;
+            height: 3.6em;
+            margin: 0 0.4em 0 0;
+            overflow: hidden;
+
+            input {
+                width: 1.25em;
+                position: absolute;
+                top: 0.5em;
+                left: 0.5em;
+                border: none;
+                background: transparent;
+                text-align: center;
+                padding: 0;
+                font-size: 1.25em;
+                line-height: 1em;
+            }
+
+            label {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .speed {
+            text-align: center;
+            position: relative;
+            width: 2.25em;
+            height: 3.6em;
+            overflow: hidden;
+
+            input {
+                width: 1.25em;
+                position: absolute;
+                top: 0.5em;
+                left: 0.25em;
+                border: none;
+                background: transparent;
+                text-align: center;
+                padding: 0;
+                font-size: 1.25em;
+                line-height: 1em;
+            }
+
+            label {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .hitPoints {
+          cursor: default;
+            position: relative;
+            display: inline-block;
+            min-width: 110px;
+            margin: 0.5em auto;
+            padding: 0.25em;
+            border: 2px ridge $gray-300;
+            border-radius: 0.2rem;
+            background-color: $gray-200;
+            text-align: center;
+
+            input {
+                text-align: center;
+                font-size: 0.7em;
+                width: 2.6em;
+            }
+
+            label {
+                font-size: 0.4em;
+                color: $gray-600;
+
+                &.hpCurrentLabel {
+                    font-size: 0.6em;
+                    font-weight: bold;
+                    color: $black;
+                }
+            }
+
+            #hpCurrent {
+                width: 2.8em;
+                font-size: 1em;
+                font-weight: bold;
+                border-weight: bold;
+            }
+
+            .hitDice {
+                background-color: rgba(255,255,255,0.25);
+                border: 1px solid rgba(0,0,0,0.25);
+                border-radius: 0.2rem;
+                padding: 0.2em;
+                margin: 0.1em;
+
+                table {
+                    margin-top: 0.2em;
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 1px;
+                }
+
+                .classItem {
+                    font-size: 0.5em;
+
+                    .className {
+                        width: 60%;
+                        display: inline-block;
+                        text-align: right;
+                        color: $gray-600;
+                    }
+
+                    .classHDq {
+                        width: 15%;
+                        display: inline-block;
+                        text-align: right;
+                    }
+
+                    .classHDd {
+                        width: 25%;
+                        display: inline-block;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+
+        .deathSaves {
+          cursor: default;
+            position: relative;
+            display: inline-block;
+            width: 7em;
+            min-width: 70px;
+            margin: 0.5em auto;
+            padding: 0.25em;
+            border: 2px ridge $gray-300;
+            border-radius: 0.2rem;
+            background-color: $gray-200;
+            text-align: left;
+
+            .deathHeading {
+                font-size: 0.5em;
+                text-align: center;
+            }
+
+            .reaper {
+                float: left;
+                width: 2em;
+                height: 3em;
+                margin-right: 5px;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: $gray-500;
+                }
+            }
+
+            .icon {
+              cursor: pointer;
+                display:inline-block;
+                width: 1em;
+                min-width:10px;
+                height: 1em;
+                min-height:10px;
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: $gray-500;
+                }
+            }
+            .save.active {
+              svg {
+                  fill: $green;
+                }
+            }
+            .fail.active {
+              svg {
+                  fill: $red;
+                }
+            }
+
+
+        }
+    }
+
+    .about {
+        input {
+            width: 9em;
+        }
+
         label {
             margin: 0.2em auto 0;
             font-size: 0.65em;
             line-height: 1em;
             display: block;
+        }
+    }
+
+    .attacks {
+        input {
+            width: 100%;
+        }
+    }
+
+    .equipment {
+        input {
+            width: 100%;
         }
     }
 }

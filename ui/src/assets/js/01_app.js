@@ -2,7 +2,7 @@
   // remove line below when testing frontend
   var fs = require('fs');
   var rimraf = require("rimraf");
-  
+
 // Paths
 let campaignListPath = "./campaign.json";
 let bookPath = "./books/";
@@ -40,4 +40,16 @@ return this[property] !== undefined;
 };
 
 
+//        //look for npc, this will eventually be its own function
+//       if(bookTitle.hasOwnProperty("NPC")){
+//         console.log(bookTitle.details.name+" true")
+//       }else{
+//         console.log("none found")
+//       }
 
+//     });
+
+
+
+//   }
+// });

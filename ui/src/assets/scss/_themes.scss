@@ -1,15 +1,17 @@
 .themes-container {
-    position: absolute;
-    top: 0;
     display: none;
-    width: 100%;
-    background-color: rgba(0,0,0,0.25);
+    position: absolute;
+    top: 153px;
+    left: 5px;
+    width: 250px;
+    background-color: $white;
     padding: 0.5em;
-    z-index: 5;
 
-    .close {
-        text-shadow: none;
-        color: $white;
+    .btn {
+        background-size: cover;
+        height:2em;
+        width:2em;
+        margin:5px;
     }
 }
 
@@ -23,7 +25,23 @@
                 background-color: rgba(255,255,255,0.35);
             }
             svg {
-                fill: black;
+                fill: $black;
+            }
+        }
+    }
+}
+
+.theme-worn {
+    background-image: url("../../assets/img/leather.jpg");
+    .menu {
+        .btn {
+            background-color: rgba(255,255,255,0.15);
+            border-color: rgba(0,0,0,0.75);
+            &:hover {
+                background-color: rgba(255,255,255,0.35);
+            }
+            svg {
+                fill: $black;
             }
         }
     }
@@ -82,14 +100,14 @@
     .menu {
         .btn {
             background-color: rgba(0,0,0,0.15);
-            border-color: rgba(200,190,0,0.75);
+            border-color: rgba(200,150,0,0.75);
             svg {
-                fill: rgba(180,150,0,.5);
+                fill: rgba(180,110,0,.5);
             }
             &:hover {
                 background-color: rgba(0,0,0,0.35);
                 svg {
-                    fill: rgba(180,150,0,.95);
+                    fill: rgba(180,110,0,.95);
                 }
             }
 

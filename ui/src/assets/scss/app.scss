@@ -10,11 +10,12 @@
 @import "library";
 @import "themes";
 @import "npc";
+@import "textSize";
 @import "campaignSelector";
 
 
 body {
     background-color: #432F20;
-    background-size: canvas;
-    transition: background 0.5s ease-in-out;
+    background-size: cover;
+    transition: background 0.5s ease;
 }
