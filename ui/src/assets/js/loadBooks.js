@@ -22,61 +22,65 @@
 // });
 let bookFileArray = [];
 let bookTitleArray = [];
-getBookFiles().then((data)=>{
-   
+getBookFiles().then((data) => {
+
     for (var i = 0; i <= data.files.length - 1; i++) {
         var path = bookPath + JSON.parse(JSON.stringify(data.files[i].name))
-        bookFileArray.push(path)
+        bookFileArray.push(path);
+        if (i == data.files.length - 1) {
+            getBookTitles(bookFileArray).then((data) => {
+                // console.log(data)
+             bookTitleArray.push(data);
+            });
+        }
     }
-    
-       getBookTitles(bookFileArray).then((data)=>{
-             console.log(data)
-            // bookTitleArray.push(data);
-       });
-    
-    //  console.log(bookFileArray);
-    //  console.log(bookTitleArray);
+
+
+
+      console.log(bookFileArray);
+      console.log(bookTitleArray);
 });
 
-function getBookTitles(bookArray){
-    return new Promise((resolve, reject)=>{
+function getBookTitles(bookArray) {
+    console.log(bookArray)
+    return new Promise((resolve, reject) => {
         let titleArray = [];
         let count = 0;
-        try{
-            bookArray.forEach(function(key,i){
-                count ++;
-                readAFile(key).then(function (book) {
-                    var bookTitle = JSON.parse(book);
+        try {
+            for(var i = 0; i<=bookArray.length-1; i++) {
+                count++;
+                readAFile(bookArray[i]).then(function (book) {
+                    var bookTitle = JSON.parse(JSON.stringify(book));
                     titleArray.push(bookTitle.details.name)
-                    if(count == bookArray.length -1){
-                        console.log("here")
-                        resolve(titleArray);
-                    } 
+
                 });
-                    // console.log(file)
-               
-            });
-           
-        }catch(error){
+                // console.log(file)
+                if (i == bookArray.length-1) {
+                    console.log("here")
+                    resolve(titleArray);
+                }
+            };
+
+        } catch (error) {
             reject(error);
         }
     });
 }
 
-function getBookFiles(){
-    return new Promise((resolve, reject)=>{
-        try{
-            getDirContents(bookPath).then((data)=>{
+function getBookFiles() {
+    return new Promise((resolve, reject) => {
+        try {
+            getDirContents(bookPath).then((data) => {
                 resolve(data);
             })
-        }catch (error){
+        } catch (error) {
             reject(error)
         }
     })
 }
 function listBooks() {
     return new Promise((resolve, reject) => {
-        let titleArray =[];
+        let titleArray = [];
         let pathArray = [];
         try {
             getDirContents(bookPath).then((data) => {
@@ -105,9 +109,9 @@ function listBooks() {
                 // console.log(titleArray)
                 // books = {"books":titleArray};
                 // resolve(books);
-                
+
             })
-                     
+
         } catch (error) {
             reject(error)
         }
