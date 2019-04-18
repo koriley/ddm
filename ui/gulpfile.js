@@ -18,6 +18,7 @@ var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 var concatCss = require('gulp-concat-css');
+var bablePolly = require("babel-polyfill");
 
 sass.compiler = require('node-sass');
 
@@ -183,9 +184,9 @@ function resetPages(done) {
 function js() {
     return gulp.src([ '!src/assets/js/libs/', 'src/assets/js/*.js'])
         .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        // .pipe(babel({
+        //     presets: ['@babel/env']
+        // }))
         .pipe(concat('app.js'))
         // .pipe(uglify())
         .pipe(sourcemaps.write())

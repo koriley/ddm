@@ -22,98 +22,83 @@
 // });
 let bookFileArray = [];
 let bookTitleArray = [];
-getBookFiles().then((data) => {
-
+getBookFiles().then(async function (data) {
     for (var i = 0; i <= data.files.length - 1; i++) {
-        var path = bookPath + JSON.parse(JSON.stringify(data.files[i].name))
+        var path = bookPath + JSON.parse(JSON.stringify(data.files[i].name));
         bookFileArray.push(path);
-        if (i == data.files.length - 1) {
-            getBookTitles(bookFileArray).then((data) => {
-                // console.log(data)
-             bookTitleArray.push(data);
-            });
-        }
     }
-
-
-
-      console.log(bookFileArray);
-      console.log(bookTitleArray);
+    await getBookTitles(bookFileArray).then((data) => {
+        //console.log(data[0])
+        for (var i = 0; i <= data.length - 1; i++) {
+            bookTitleArray.push(data[i]);
+        }
+    });
+    console.log(bookFileArray);
+    console.log(bookTitleArray);
+    let bookObjArray = [];
+    let bookTPObj = {};
+    for (var i = 0; i <= bookTitleArray.length - 1; i++) {
+        bookTPObj = {
+            "name": bookTitleArray[i],
+            "path": bookFileArray[i]
+        }
+        bookObjArray.push(bookTPObj);
+    }
+    books = {
+        "books": [bookObjArray]
+    };
+    console.log(JSON.stringify(books.books))
 });
 
-function getBookTitles(bookArray) {
-    console.log(bookArray)
-    return new Promise((resolve, reject) => {
-        let titleArray = [];
-        let count = 0;
-        try {
-            for(var i = 0; i<=bookArray.length-1; i++) {
-                count++;
-                readAFile(bookArray[i]).then(function (book) {
-                    var bookTitle = JSON.parse(JSON.stringify(book));
-                    titleArray.push(bookTitle.details.name)
 
-                });
-                // console.log(file)
-                if (i == bookArray.length-1) {
-                    console.log("here")
+
+async function getBookTitles(bookArray) {
+    // console.log(bookArray)
+    return new Promise(async function (resolve, reject) {
+        var titleArray = [];
+        var count = 0;
+
+        try {
+            for (var i = 0; i <= bookArray.length - 1; i++) {
+                count++; //console.log(bookArray[i])
+
+                await readAFile(bookArray[i]).then(function (book) {
+                    var bookTitle = JSON.parse(book);
+                    // console.log(bookTitle.details.name);
+                    // console.log(bookTitle.details.name)
+                    titleArray.push(bookTitle.details.name)
+                }); // console.log(file)
+                if (i == bookArray.length - 1) {
+                    // console.log("here")
                     resolve(titleArray);
                 }
-            };
+            }
 
+            ;
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+}
+
+function getBookFiles() {
+    return new Promise(function (resolve, reject) {
+        try {
+            getDirContents(bookPath).then(function (data) {
+                resolve(data);
+            });
         } catch (error) {
             reject(error);
         }
     });
 }
-
-function getBookFiles() {
-    return new Promise((resolve, reject) => {
-        try {
-            getDirContents(bookPath).then((data) => {
-                resolve(data);
-            })
-        } catch (error) {
-            reject(error)
-        }
-    })
-}
-function listBooks() {
-    return new Promise((resolve, reject) => {
-        let titleArray = [];
-        let pathArray = [];
-        try {
-            getDirContents(bookPath).then((data) => {
-                // console.log(JSON.stringify(data))
-
-                for (var i = 0; i <= data.files.length - 1; i++) {
-                    var path = bookPath + JSON.parse(JSON.stringify(data.files[i].name))
-                    pathArray.push(path)
-                    readAFile(path).then(function (book) {
-                        var bookTitle = JSON.parse(book);
-                        // var bookObj = {"name":bookTitle.details.name, "path":path}
-                        titleArray.push(bookTitle.details.name);
-                        // console.log(JSON.stringify(bookTitle.details.name))
-                    })
-                    // .then((data)=>{
-                    //     // console.log(titleArray)
-                    //     // console.log(titleArray.length)
-                    //     // for(var i=0;i<=titleArray.length -1; i++){
-                    //     //     console.log("stuff");
-                    //     // }
-                    //     titleArray.forEach(function(i,key){
-                    //         console.log("This is i "+i+", this is key?"+key)
-                    //     })
-                    // });
-                }
-                // console.log(titleArray)
-                // books = {"books":titleArray};
-                // resolve(books);
-
-            })
-
-        } catch (error) {
-            reject(error)
-        }
-    });
-}
+    function listBooks() {
+        return new Promise((resolve, reject) => {
+            try{
+                resolve();
+            }catch(error){
+                reject(error);
+            }
+        });
+     }
