@@ -45,9 +45,12 @@ getBookFiles().then(async function (data) {
         bookObjArray.push(bookTPObj);
     }
     books = {
-        "books": [bookObjArray]
+        "books": bookObjArray
     };
-    console.log(JSON.stringify(books.books))
+    listBooks().then((data)=>{
+        // console.log(data)
+        jQuery(".bookList").html(data);
+    })
 });
 
 
@@ -96,7 +99,15 @@ function getBookFiles() {
     function listBooks() {
         return new Promise((resolve, reject) => {
             try{
-                resolve();
+               let html = `<ul class="list-group">`;
+                for(var i = 0; i<=books.books.length-1;i++){
+                    html += `<li class="list-group-item bList"><div class="d-flex justify-content-start bName" data-path="${books.books[i].path}">${books.books[i].name}</div><div class="d-flex justify-content-end bButtons"><button type="button" data-path="${books.books[i].path}" class="btn btn-info load">Load</button><button type="button" class="btn btn-info unload">Unload</button></div></li>`
+                    if(i == books.books.length-1){
+                        html+="</ul>";
+                        resolve(html);
+                    }
+                }
+                // resolve(JSON.stringify(books));
             }catch(error){
                 reject(error);
             }

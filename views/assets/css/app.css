@@ -7536,6 +7536,9 @@ max-width: 600px; */
   background-color: #fff;
   padding: 1em; }
 
+.bookList .list-group .bList .bButtons .unload {
+  display: none; }
+
 .themes-container {
   display: none;
   position: absolute;
